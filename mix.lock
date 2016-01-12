@@ -1,0 +1,9 @@
+%{"exactor": {:hex, :exactor, "2.2.0"},
+  "exjsx": {:hex, :exjsx, "3.2.0"},
+  "exprintf": {:git, "https://github.com/parroty/exprintf.git", "3b6b805be48d2385245195cbae98c3e7535d3bab", []},
+  "exvcr": {:hex, :exvcr, "0.7.0"},
+  "httpotion": {:hex, :httpotion, "2.1.0"},
+  "ibrowse": {:git, "https://github.com/cmullaparthi/ibrowse.git", "ea3305d21f37eced4fac290f64b068e56df7de80", [tag: "v4.1.2"]},
+  "jsx": {:hex, :jsx, "2.6.2"},
+  "meck": {:hex, :meck, "0.8.4"},
+  "poison": {:hex, :poison, "1.5.0"}}
