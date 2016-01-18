@@ -10,7 +10,6 @@ defmodule TicketTest do
     assert ticket.comment.body == "Hello"
   end
 
-
   test "it can create a ticket with subject" do
     ticket = Ticket.new("Hello") |> Ticket.set_subject("The subject")
 
@@ -18,14 +17,12 @@ defmodule TicketTest do
     assert ticket.subject == "The subject"
   end
 
-
   test "it can create a ticket with requeser_id" do
     ticket = Ticket.new("Hello") |> Ticket.set_requester_id("123")
 
     assert ticket.comment.body == "Hello"
     assert ticket.requester_id == "123"
   end
-
 
   test "it can create a ticket with assignee_id and assignee_email" do
     ticket = Ticket.new("Hello")
@@ -37,13 +34,11 @@ defmodule TicketTest do
     assert ticket.assignee_email == "asd@asd.asd"
   end
 
-
   test "it can create a ticket with group_id" do
     ticket = Ticket.new("Hello") |> Ticket.set_group_id("123")
 
     assert ticket.group_id == "123"
   end
-
 
   test "it can create a ticket with collaborator_ids" do
     ticket = Ticket.new("Hello") |> Ticket.set_collaborator_ids(["1", "2", "3"])
@@ -51,13 +46,11 @@ defmodule TicketTest do
     assert ticket.collaborator_ids == ["1", "2", "3"]
   end
 
-
   test "it can create a ticket with tags" do
     ticket = Ticket.new("Hello") |> Ticket.set_tags(["1", "2", "3"])
 
     assert ticket.tags == ["1", "2", "3"]
   end
-
 
   test "it can create a ticket with problem_id due_at, updated_stamp and safe_update" do
     ticket = Ticket.new("Hello")
@@ -72,7 +65,6 @@ defmodule TicketTest do
     assert ticket.safe_update == true
   end
 
-
   test "it can create a ticket with external_id forum_topic_id" do
     ticket = Ticket.new("Hello")
     |> Ticket.set_external_id("222")
@@ -82,14 +74,12 @@ defmodule TicketTest do
     assert ticket.forum_topic_id == "123"
   end
 
-
   test "it can create a ticket with assignee_email" do
     ticket = Ticket.new("Hello") |> Ticket.set_assignee_email("asd@asd.asd")
 
     assert ticket.comment.body == "Hello"
     assert ticket.assignee_email == "asd@asd.asd"
   end
-
 
   test "it can create a ticket with priority" do
     ticket = Ticket.new("Hello") |> Ticket.set_priority("urgent")
@@ -98,7 +88,6 @@ defmodule TicketTest do
     assert ticket.priority == "urgent"
   end
 
-
   test "it can create a ticket with via_followup_source_id" do
     ticket = Ticket.new("Hello") |> Ticket.set_via_followup_source_id("123")
 
@@ -106,13 +95,11 @@ defmodule TicketTest do
     assert ticket.via_followup_source_id == "123"
   end
 
-
   test "it catches wrong priorities" do
     assert_raise RuntimeError, "Wrong priority passed", fn ->
       Ticket.new("Hello") |> Ticket.set_priority("not_a_priority")
     end
   end
-
 
   test "it can create a ticket with type" do
     ticket = Ticket.new("Hello") |> Ticket.set_type("incident")
@@ -121,13 +108,11 @@ defmodule TicketTest do
     assert ticket.type == "incident"
   end
 
-
   test "it catches wrong type" do
     assert_raise RuntimeError, "Wrong type passed", fn ->
       Ticket.new("Hello") |> Ticket.set_type("not_a_type")
     end
   end
-
 
   test "it can create a ticket collaborators" do
     ticket = Ticket.new("Hello") |> Ticket.add_collaborator(name: "Test", email: "t@t.com")
@@ -150,7 +135,6 @@ defmodule TicketTest do
     assert ticket.collaborators |> Enum.at(3) == "test@test.com"
   end
 
-
   test "it can create a custom fields" do
     ticket = Ticket.new("Hello") |> Ticket.add_custom_fields("1", "Value1")
     assert ticket.custom_fields |> length == 1
@@ -163,7 +147,6 @@ defmodule TicketTest do
     # assert ticket.status == "open"
   end
 
-
   test "it can create a ticket with status" do
     ticket = Ticket.new("Hello") |> Ticket.set_status("open")
 
@@ -171,13 +154,11 @@ defmodule TicketTest do
     assert ticket.status == "open"
   end
 
-
   test "it catches wrong status" do
     assert_raise RuntimeError, "Wrong status passed", fn ->
       Ticket.new("Hello") |> Ticket.set_status("not_a_status")
     end
   end
-
 
   test "it creates a json ticket" do
     ticket = Ticket.new("1222")
@@ -193,7 +174,7 @@ defmodule TicketTest do
       |> Ticket.set_type("problem")
       |> Ticket.set_subject("The subject")
 
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> create_ticket(ticket: ticket)
 
@@ -204,7 +185,7 @@ defmodule TicketTest do
 
   test "it can create a delete a ticket" do
     use_cassette "delete_tocket" do
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> delete_ticket(id: "399")
 
@@ -215,7 +196,7 @@ defmodule TicketTest do
 
   test "it can get tickets collaborators" do
     use_cassette "ticket_collaborators" do
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> ticket_collaborators(id: "603")
 
@@ -226,7 +207,7 @@ defmodule TicketTest do
 
   test "it can get tickets incidents" do
     use_cassette "ticket_incidents" do
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> ticket_incidents(id: "502")
 
@@ -237,7 +218,7 @@ defmodule TicketTest do
 
   test "it can get ticket problems" do
     use_cassette "all_problems" do
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> ticket_problems
 
@@ -248,7 +229,7 @@ defmodule TicketTest do
 
   test "it can autocomplete problems" do
     use_cassette "autocomplete_problems" do
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> autocomplete_problems(text: "Subject")
 
@@ -264,7 +245,7 @@ defmodule TicketTest do
       |> Ticket.set_type("problem")
       |> Ticket.set_subject("Another subject")
 
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> update_ticket(ticket: ticket, id: "595")
 
@@ -276,7 +257,7 @@ defmodule TicketTest do
   test "it can merge two tickets" do
     use_cassette "merge_tickets" do
 
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> merge_tickets(target_id: "361", ids: ["344", "339"],
                        target_comment: "Closing this", source_comment: "Combing stuff")
@@ -290,7 +271,7 @@ defmodule TicketTest do
   test "it can mergeget ticket related" do
     use_cassette "ticket_related" do
 
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
       |> ticket_related(id: "23")
 
@@ -302,7 +283,7 @@ defmodule TicketTest do
 
     test "it can fetch all tickets" do
       use_cassette "all_tickets" do
-        res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+        res = Zendesk.account(subdomain: "your_subdomain",
         email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
         |> all_tickets
 
@@ -314,7 +295,7 @@ defmodule TicketTest do
 
     test "it can fetch recent tickets" do
       use_cassette "recent_tickets" do
-        res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+        res = Zendesk.account(subdomain: "your_subdomain",
         email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
         |> recent_tickets
 
@@ -326,7 +307,7 @@ defmodule TicketTest do
 
     test "it can fetch ticket all ticket for a requester" do
       use_cassette "requester_tickets" do
-        res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+        res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
         |> tickets_with_user(requester: "4047329778")
 
@@ -338,7 +319,7 @@ defmodule TicketTest do
 
     test "it can fetch ticket assigned to a user" do
       use_cassette "assigned_tickets" do
-        res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+        res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
         |> tickets_with_user(assignee: "236084977")
 
@@ -350,7 +331,7 @@ defmodule TicketTest do
 
     test "it can fetch ticket cc'd to a user" do
       use_cassette "ccd_tickets" do
-        res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+        res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
         |> tickets_with_user(cc: "236084977")
 
@@ -362,7 +343,7 @@ defmodule TicketTest do
 
     test "it can fetch ticket for an organization" do
       use_cassette "organization_tickets" do
-        res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+        res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
         |> ticket_for_organization(organization_id: "22016037")
 
@@ -375,7 +356,7 @@ defmodule TicketTest do
   test "it can get a ticket with id" do
     use_cassette "get_ticket_with_id" do
 
-    res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+    res = Zendesk.account(subdomain: "your_subdomain",
     email: "test@test.com", password: "test")
     |> ticket_with_id(id: "587")
 
@@ -388,7 +369,7 @@ defmodule TicketTest do
   test "it can get multiple tickets" do
     use_cassette "many_tickets" do
 
-      res = Zendesk.account(url: "https://your_token.zendesk.com/api/v2",
+      res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
       |> tickets_with_ids(ids: ["1", "587"])
 

@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/organizations/autocomplete.json?name=mobile"
+    },
+    "response": {
+      "body": "{\"organizations\":[{\"url\":\"https://your_subdomain.zendesk.com/api/v2/organizations/22016037.json\",\"id\":22016037,\"name\":\"Mobile - Enterprise - Testing - Z3N\",\"shared_tickets\":false,\"shared_comments\":false,\"external_id\":null,\"created_at\":\"2012-07-15T06:29:08Z\",\"updated_at\":\"2012-07-15T06:29:08Z\",\"domain_names\":[],\"details\":null,\"notes\":null,\"group_id\":null,\"tags\":[],\"organization_fields\":{}}],\"next_page\":null,\"previous_page\":null,\"count\":1}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

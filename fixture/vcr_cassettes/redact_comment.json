@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "put",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/27/comments/23487261437/redact.json"
+    },
+    "response": {
+      "body": "{\"comment\":{\"id\":23487261437,\"type\":\"Comment\",\"author_id\":237065843,\"body\":\"\\u2587\\u2587\\u2587\\u2587\\u2587 \\u2587i\\u2587k\\u2587\\u2587\",\"html_body\":\"<div class=\\\"zd-comment\\\"><p>\\u2587\\u2587\\u2587\\u2587\\u2587 ti\\u2587k\\u2587t</p></div>\",\"public\":true,\"attachments\":[],\"audit_id\":23487261427}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/tags.json"
+    },
+    "response": {
+      "body": "{\"tags\":[{\"name\":\"tag_one\",\"count\":8},{\"name\":\"o\",\"count\":7},{\"name\":\"tag_two\",\"count\":7},{\"name\":\"version_1\",\"count\":6},{\"name\":\"tag\",\"count\":5},{\"name\":\"testing_one\",\"count\":5},{\"name\":\"checkbox_applied\",\"count\":5},{\"name\":\"test\",\"count\":4},{\"name\":\"tag1\",\"count\":4},{\"name\":\"a\",\"count\":3},{\"name\":\"version_3\",\"count\":3},{\"name\":\"t1\",\"count\":2},{\"name\":\"slip\",\"count\":2},{\"name\":\"version_2\",\"count\":2},{\"name\":\"dansk\",\"count\":2},{\"name\":\"closed_by_merge\",\"count\":2},{\"name\":\"taha\",\"count\":2},{\"name\":\"tags\",\"count\":2},{\"name\":\"asd\",\"count\":1},{\"name\":\"t\",\"count\":1},{\"name\":\"some_tags\",\"count\":1},{\"name\":\"sample\",\"count\":1},{\"name\":\"sal\",\"count\":1},{\"name\":\"qwe\",\"count\":1},{\"name\":\"q\",\"count\":1},{\"name\":\"no\",\"count\":1},{\"name\":\"look\",\"count\":1},{\"name\":\"loadza\",\"count\":1},{\"name\":\"lala\",\"count\":1},{\"name\":\"zendesk\",\"count\":1},{\"name\":\"how\",\"count\":1},{\"name\":\"ya\",\"count\":1},{\"name\":\"horse\",\"count\":1},{\"name\":\"hi\",\"count\":1},{\"name\":\"heyy\",\"count\":1},{\"name\":\"heres\",\"count\":1},{\"name\":\"heelo\",\"count\":1},{\"name\":\"to\",\"count\":1},{\"name\":\"haha\",\"count\":1},{\"name\":\"time\",\"count\":1},{\"name\":\"hags\",\"count\":1},{\"name\":\"ther\",\"count\":1},{\"name\":\"g\",\"count\":1},{\"name\":\"tg\",\"count\":1},{\"name\":\"default\",\"count\":1},{\"name\":\"testing_two\",\"count\":1},{\"name\":\"da_customer\",\"count\":1},{\"name\":\"bib\",\"count\":1},{\"name\":\"atag\",\"count\":1},{\"name\":\"at\",\"count\":1},{\"name\":\"tagkife\",\"count\":1},{\"name\":\"asdf\",\"count\":1}],\"next_page\":null,\"previous_page\":null,\"count\":52}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

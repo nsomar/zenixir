@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/group_memberships/20967233.json"
+    },
+    "response": {
+      "body": "{\"group_membership\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/group_memberships/20967233.json\",\"id\":20967233,\"user_id\":237064573,\"group_id\":20305157,\"default\":true,\"created_at\":\"2012-07-15T06:59:06Z\",\"updated_at\":\"2012-07-15T06:59:06Z\"}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

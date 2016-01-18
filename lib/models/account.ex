@@ -3,8 +3,37 @@ defmodule Zendesk.Account do
   Zendesk Account module
   """
 
-  defstruct [:email, :password, :url, :token]
+  defstruct [:email, :password, :subdomain, :domain, :token]
 
+
+  @doc """
+  Get the full url
+
+  `account`: the zendesk account
+
+  `endpoint`: the resource endpoint
+  """
+  def full_url(account, endpoint), do: domain(account) <> endpoint
+
+  @doc """
+  Get the account domain
+
+  `subdomain`: the subdomain
+  """
+  def domain(%Zendesk.Account{subdomain: subdomain})
+  when not is_nil subdomain  do
+    "https://#{subdomain}.zendesk.com/api/v2"
+  end
+
+  @doc """
+  Get the account domain
+
+  `domain`: the domain
+  """
+  def domain(%Zendesk.Account{domain: domain})
+  when not is_nil domain  do
+    domain
+  end
 
   @doc """
   Get the Auth for a Zendesk.Account

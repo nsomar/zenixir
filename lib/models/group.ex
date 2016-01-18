@@ -3,16 +3,18 @@ defmodule Zendesk.Group do
   Zendesk Group
   """
 
-  defstruct [:id, :url, :name, :email, :deleted, :created_at, :updated_at]
-
 
   @doc """
   Decode a JSON to a Zendesk.Group
 
   `json`: the json to parse
   """
+  def from_json_array(json) do
+    Poison.Parser.parse(json, keys: :atoms) |> elem(1) |> Dict.get(:groups)
+  end
+
   def from_json(json) do
-    Poison.decode!(json, as: %{"groups" => [Zendesk.Group]})["groups"]
+    Poison.Parser.parse(json, keys: :atoms) |> elem(1) |> Dict.get(:group)
   end
 
 end

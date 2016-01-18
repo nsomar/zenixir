@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "put",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/users/453222636/tags.json"
+    },
+    "response": {
+      "body": "{\"tags\":[\"3\",\"4\",\"1\",\"2\"]}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -6,7 +6,7 @@
       "method": "delete",
       "options": [],
       "request_body": "",
-      "url": "https://your_token.zendesk.com/api/v2/tickets/399.json"
+      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/399.json"
     },
     "response": {
       "body": "",

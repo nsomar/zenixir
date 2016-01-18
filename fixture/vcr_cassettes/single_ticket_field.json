@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/ticket_fields/21400357.json"
+    },
+    "response": {
+      "body": "{\"ticket_field\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/ticket_fields/21400357.json\",\"id\":21400357,\"type\":\"subject\",\"title\":\"Subject\",\"raw_title\":\"Subject\",\"description\":\"\",\"raw_description\":\"\",\"position\":0,\"active\":true,\"required\":false,\"collapsed_for_agents\":false,\"regexp_for_validation\":null,\"title_in_portal\":\"Subject\",\"raw_title_in_portal\":\"Subject\",\"visible_in_portal\":true,\"editable_in_portal\":true,\"required_in_portal\":true,\"tag\":null,\"created_at\":\"2012-07-15T06:29:09Z\",\"updated_at\":\"2013-06-26T18:47:48Z\",\"removable\":false}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

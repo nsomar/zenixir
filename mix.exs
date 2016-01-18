@@ -4,9 +4,10 @@ defmodule NewTest.Mixfile do
   def project do
     [app: :zendesk,
      version: "0.0.1",
-     elixir: "~> 1.1",
+     elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     test_coverage: [tool: Coverex.Task, coveralls: true],
      deps: deps]
   end
 
@@ -31,6 +32,8 @@ defmodule NewTest.Mixfile do
       {:httpotion, "~> 2.1.0"},
       {:poison, "~> 1.5"},
       {:exprintf, github: "parroty/exprintf"},
-      {:exvcr, "~> 0.7", only: :test}]
+      {:exvcr, "~> 0.7", only: :test},
+      {:coverex, "~> 1.4.7", only: :test},
+      {:inch_ex, only: :docs}]
   end
 end

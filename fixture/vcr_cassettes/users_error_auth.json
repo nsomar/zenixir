@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://your_token.zendesk.com/api/v2/users.json"
+      "url": "https://your_subdomain.zendesk.com/api/v2/users.json"
     },
     "response": {
       "body": "{\"error\":\"Couldn\'t authenticate you\"}",

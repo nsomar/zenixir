@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/brands/26847.json"
+    },
+    "response": {
+      "body": "{\"brand\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/brands/26847.json\",\"id\":26847,\"name\":\"BrandOne\",\"brand_url\":\"https://your_subdomainbrandon.zendesk.com\",\"has_help_center\":false,\"help_center_state\":\"disabled\",\"active\":false,\"default\":false,\"is_deleted\":false,\"logo\":null,\"ticket_form_ids\":[48048,3691,120608,125768,1132,67463,67473],\"created_at\":\"2015-01-21T17:35:04Z\",\"updated_at\":\"2015-11-30T14:22:18Z\",\"subdomain\":\"your_subdomainbrandon\",\"host_mapping\":null}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

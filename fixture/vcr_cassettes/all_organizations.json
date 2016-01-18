@@ -6,10 +6,10 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://your_token.zendesk.com/api/v2/organizations.json"
+      "url": "https://your_subdomain.zendesk.com/api/v2/organizations.json"
     },
     "response": {
-      "body": "{\"organizations\":[{\"url\":\"https:\/\/mxent.zendesk.com\/api\/v2\/organizations\/22016037.json\",\"id\":22016037,\"name\":\"[TEST] Mobile - Enterprise - Testing - Z3N\",\"shared_tickets\":false,\"shared_comments\":false,\"external_id\":null,\"created_at\":\"2012-07-15T06:29:08Z\",\"updated_at\":\"2012-07-15T06:29:08Z\",\"domain_names\":[],\"details\":null,\"notes\":null,\"group_id\":null,\"tags\":[],\"organization_fields\":{}},{\"url\":\"https:\/\/mxent.zendesk.com\/api\/v2\/organizations\/43372477.json\",\"id\":43372477,\"name\":\"Test Organisation\",\"shared_tickets\":false,\"shared_comments\":false,\"external_id\":null,\"created_at\":\"2015-04-07T17:16:22Z\",\"updated_at\":\"2015-04-07T17:16:22Z\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"group_id\":null,\"tags\":[],\"organization_fields\":{}}],\"next_page\":null,\"previous_page\":null,\"count\":2}",
+      "body": "{\"organizations\":[{\"url\":\"https:\/\/your_subdomain.zendesk.com\/api\/v2\/organizations\/22016037.json\",\"id\":22016037,\"name\":\"[TEST] Mobile - Enterprise - Testing - Z3N\",\"shared_tickets\":false,\"shared_comments\":false,\"external_id\":null,\"created_at\":\"2012-07-15T06:29:08Z\",\"updated_at\":\"2012-07-15T06:29:08Z\",\"domain_names\":[],\"details\":null,\"notes\":null,\"group_id\":null,\"tags\":[],\"organization_fields\":{}},{\"url\":\"https:\/\/your_subdomain.zendesk.com\/api\/v2\/organizations\/43372477.json\",\"id\":43372477,\"name\":\"Test Organisation\",\"shared_tickets\":false,\"shared_comments\":false,\"external_id\":null,\"created_at\":\"2015-04-07T17:16:22Z\",\"updated_at\":\"2015-04-07T17:16:22Z\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"group_id\":null,\"tags\":[],\"organization_fields\":{}}],\"next_page\":null,\"previous_page\":null,\"count\":2}",
       "headers": {
         "Accept-Ranges": "bytes",
         "Cache-Control": "max-age=604800",

@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/attachments/2260784638.json"
+    },
+    "response": {
+      "body": "{\"attachment\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/attachments/2260784638.json\",\"id\":2260784638,\"file_name\":\"a.png\",\"content_url\":\"https://your_subdomain.zendesk.com/attachments/token/jvKGSwtR94EkExQ9FkxYa4mxQ/?name=a.png\",\"mapped_content_url\":\"https://your_subdomain.zendesk.com/attachments/token/jvKGSwtR94EkExQ9FkxYa4mxQ/?name=a.png\",\"content_type\":\"image/png\",\"size\":5,\"inline\":false,\"thumbnails\":[]}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

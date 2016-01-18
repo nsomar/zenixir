@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/requests/1.json"
+    },
+    "response": {
+      "body":"{\"request\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/requests/1.json\",\"id\":1,\"status\":\"pending\",\"priority\":\"urgent\",\"type\":\"task\",\"subject\":\"This is a sample ticket requested and submitted by you\",\"description\":\"This is the first comment. Feel free to delete this sample ticket.\\n\\n\",\"organization_id\":22016037,\"via\":{\"channel\":\"web\",\"source\":{\"from\":{},\"to\":{},\"rel\":null}},\"custom_fields\":[{\"id\":24128796,\"value\":\"\"},{\"id\":24083563,\"value\":null},{\"id\":24078466,\"value\":null},{\"id\":24098708,\"value\":\"\"},{\"id\":24130296,\"value\":null}],\"requester_id\":236084977,\"collaborator_ids\":[],\"due_at\":\"2013-04-19T12:00:00Z\",\"can_be_solved_by_me\":true,\"created_at\":\"2012-07-15T06:27:09Z\",\"updated_at\":\"2015-11-03T11:22:22Z\",\"assignee_id\":236084977,\"ticket_form_id\":null,\"fields\":[{\"id\":24128796,\"value\":\"\"},{\"id\":24083563,\"value\":null},{\"id\":24078466,\"value\":null},{\"id\":24098708,\"value\":\"\"},{\"id\":24130296,\"value\":null}]}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -1,12 +1,14 @@
-# defmodule Zendesk.Comment do
-#   @moduledoc """
-#   Zendesk Account module
-#   """
-#
-#   defstruct [:body]
-#
-#   def create(body) do
-#     %Zendesk.Comment{body: body}
-#   end
-#
-# end
+defmodule Zendesk.Comment do
+  @moduledoc """
+  Zendesk Comment module
+  """
+
+  def from_json(json) do
+    Poison.Parser.parse(json, keys: :atoms) |> elem(1) |> Dict.get(:comment)
+  end
+
+  def from_json_array(json) do
+    Poison.Parser.parse(json, keys: :atoms) |> elem(1) |> Dict.get(:comments)
+  end
+
+end

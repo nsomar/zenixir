@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/views/29292517.json"
+    },
+    "response": {
+      "body": "{\"view\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/views/29292517.json\",\"id\":29292517,\"title\":\"Roger Wilco\",\"active\":true,\"updated_at\":\"2012-07-15T06:29:09Z\",\"created_at\":\"2012-07-15T06:29:09Z\",\"restriction\":null,\"sla_id\":null,\"execution\":{\"group_by\":\"status\",\"group_order\":\"asc\",\"sort_by\":\"score\",\"sort_order\":\"desc\",\"group\":{\"id\":\"status\",\"title\":\"Status\",\"order\":\"asc\"},\"sort\":{\"id\":\"score\",\"title\":\"Score\",\"order\":\"desc\"},\"columns\":[{\"id\":\"score\",\"title\":\"Score\"},{\"id\":\"subject\",\"title\":\"Subject\"},{\"id\":\"requester\",\"title\":\"Requester\"},{\"id\":\"created\",\"title\":\"Requested\"},{\"id\":\"type\",\"title\":\"Type\"},{\"id\":\"priority\",\"title\":\"Priority\"}],\"fields\":[{\"id\":\"score\",\"title\":\"Score\"},{\"id\":\"subject\",\"title\":\"Subject\"},{\"id\":\"requester\",\"title\":\"Requester\"},{\"id\":\"created\",\"title\":\"Requested\"},{\"id\":\"type\",\"title\":\"Type\"},{\"id\":\"priority\",\"title\":\"Priority\"}],\"custom_fields\":[]},\"conditions\":{\"all\":[{\"field\":\"status\",\"operator\":\"less_than\",\"value\":\"solved\"},{\"field\":\"assignee_id\",\"operator\":\"is\",\"value\":\"current_user\"}],\"any\":[]}}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

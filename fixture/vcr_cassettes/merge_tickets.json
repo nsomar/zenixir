@@ -6,10 +6,10 @@
       "method": "post",
       "options": [],
       "request_body": "",
-      "url": "https://your_token.zendesk.com/api/v2/tickets/361/merge.json"
+      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/361/merge.json"
     },
     "response": {
-      "body": "{\"job_status\":{\"id\":\"f689a5f55bf847d6d6270be85d2489bf\",\"url\":\"https://your_token.zendesk.com/api/v2/job_statuses/f689a5f55bf847d6d6270be85d2489bf.json\",\"total\":null,\"progress\":null,\"status\":\"queued\",\"message\":null,\"results\":null}}",
+      "body": "{\"job_status\":{\"id\":\"f689a5f55bf847d6d6270be85d2489bf\",\"url\":\"https://your_subdomain.zendesk.com/api/v2/job_statuses/f689a5f55bf847d6d6270be85d2489bf.json\",\"total\":null,\"progress\":null,\"status\":\"queued\",\"message\":null,\"results\":null}}",
       "headers": {
         "Accept-Ranges": "bytes",
         "Cache-Control": "max-age=604800",

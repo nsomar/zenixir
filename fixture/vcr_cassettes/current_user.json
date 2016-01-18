@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/users/me.json"
+    },
+    "response": {
+      "body": "{\"user\":{\"id\":236084977,\"url\":\"https://your_subdomain.zendesk.com/api/v2/users/236084977.json\",\"name\":\"Owner\",\"email\":\"test@zendesk.com\",\"created_at\":\"2012-07-15T06:29:08Z\",\"updated_at\":\"2016-01-16T23:51:45Z\",\"time_zone\":\"Arizona\",\"phone\":null,\"photo\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/attachments/250046877.json\",\"id\":250046877,\"file_name\":\"Screen_Shot_2015-10-26_at_15.08.22.png\",\"content_url\":\"https://your_subdomain.zendesk.com/system/photos/0002/5004/6877/Screen_Shot_2015-10-26_at_15.08.22.png\",\"mapped_content_url\":\"https://your_subdomain.zendesk.com/system/photos/0002/5004/6877/Screen_Shot_2015-10-26_at_15.08.22.png\",\"content_type\":\"image/png\",\"size\":5845,\"inline\":false,\"thumbnails\":[{\"url\":\"https://your_subdomain.zendesk.com/api/v2/attachments/250046887.json\",\"id\":250046887,\"file_name\":\"Screen_Shot_2015-10-26_at_15.08.22_thumb.png\",\"content_url\":\"https://your_subdomain.zendesk.com/system/photos/0002/5004/6877/Screen_Shot_2015-10-26_at_15.08.22_thumb.png\",\"mapped_content_url\":\"https://your_subdomain.zendesk.com/system/photos/0002/5004/6877/Screen_Shot_2015-10-26_at_15.08.22_thumb.png\",\"content_type\":\"image/png\",\"size\":5845,\"inline\":false}]},\"locale_id\":1,\"locale\":\"en-US\",\"organization_id\":22016037,\"role\":\"admin\",\"verified\":true,\"external_id\":null,\"tags\":[],\"alias\":\"\",\"active\":true,\"shared\":false,\"shared_agent\":false,\"last_login_at\":\"2016-01-16T23:51:45Z\",\"two_factor_auth_enabled\":null,\"signature\":\"\",\"details\":\"\",\"notes\":\"\",\"custom_role_id\":null,\"moderator\":true,\"ticket_restriction\":null,\"only_private_comments\":false,\"restricted_agent\":false,\"suspended\":false,\"chat_only\":false,\"user_fields\":{\"test2\":null},\"authenticity_token\":\"Gt8nSFZg0077QThZQDwenBF26Jb0FboOe3s2CPtawvA=\"}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

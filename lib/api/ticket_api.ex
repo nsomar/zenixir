@@ -33,7 +33,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_single_ticket/1, account: account, verb: :post, endpoint: @create_endpoint, body: json, headers: headers)
   end
 
-
   @doc """
   Update a ticket.
 
@@ -51,7 +50,6 @@ defmodule Zendesk.TicketApi do
     body: json, headers: headers)
   end
 
-
   @doc """
   Get All Tickets.
 
@@ -65,7 +63,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_multiple_tickets/1, account: account, verb: :get, endpoint: @all_endpoint)
   end
 
-
   @doc """
   Get the recent tickets
 
@@ -74,7 +71,6 @@ defmodule Zendesk.TicketApi do
   def recent_tickets(account) do
     perform_request(&parse_multiple_tickets/1, account: account, verb: :get, endpoint: @recent_endpoint)
   end
-
 
   @doc """
   Delete a ticket
@@ -87,7 +83,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_delete_ticket/1, account: account, verb: :delete, endpoint: ticket_url(id))
   end
 
-
   @doc """
   Fetch a ticket with ID
 
@@ -99,7 +94,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_single_ticket/1, account: account, verb: :get,
     endpoint: ticket_url(id))
   end
-
 
   @doc """
   Fetch a group of tickets
@@ -116,7 +110,6 @@ defmodule Zendesk.TicketApi do
     endpoint: url)
   end
 
-
   @doc """
   Get tickets for a requester
 
@@ -128,7 +121,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_multiple_tickets/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@by_requester, [requeser_id]))
   end
-
 
   @doc """
   Get tickets for an assignee
@@ -142,7 +134,6 @@ defmodule Zendesk.TicketApi do
     endpoint: ExPrintf.sprintf(@by_assignee, [assignee_id]))
   end
 
-
   @doc """
   Get tickets for a ccd user
 
@@ -154,7 +145,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_multiple_tickets/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@by_cc, [cc_id]))
   end
-
 
   @doc """
   Get tickets for an organization
@@ -168,7 +158,6 @@ defmodule Zendesk.TicketApi do
     endpoint: ExPrintf.sprintf(@for_organization, [organization_id]))
   end
 
-
   @doc """
   Get tickets related to a ticket
 
@@ -180,7 +169,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_related_tickets_info/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@related_tickets, [id]))
   end
-
 
   @doc """
   Get the ticket collaborators
@@ -194,7 +182,6 @@ defmodule Zendesk.TicketApi do
     endpoint: ExPrintf.sprintf(@ticket_collaborators, [id]))
   end
 
-
   @doc """
   Get the ticket incidents
 
@@ -207,7 +194,6 @@ defmodule Zendesk.TicketApi do
     endpoint: ExPrintf.sprintf(@ticket_incidents, [id]))
   end
 
-
   @doc """
   Get the all the problem tickets
 
@@ -217,7 +203,6 @@ defmodule Zendesk.TicketApi do
     perform_request(&parse_multiple_tickets/1, account: account, verb: :get,
     endpoint: @all_problems)
   end
-
 
   @doc """
   Search the problems using a text query
@@ -233,7 +218,6 @@ defmodule Zendesk.TicketApi do
     body: autocomplete_body(text: text),
     headers: headers)
   end
-
 
   @doc """
   Merge a list of tickets to a parent ticket
@@ -257,7 +241,6 @@ defmodule Zendesk.TicketApi do
     body: merge_tickets_body(ids, target_comment, source_comment),
     headers: headers)
   end
-
 
   # Private
 
@@ -283,7 +266,7 @@ defmodule Zendesk.TicketApi do
   end
 
   defp parse_collaborators(response) do
-    Zendesk.User.from_json(response)
+    Zendesk.User.from_json_array(response)
   end
 
   defp parse_related_tickets_info(response) do

@@ -6,10 +6,10 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://your_token.zendesk.com/api/v2/groups.json"
+      "url": "https://your_subdomain.zendesk.com/api/v2/groups.json"
     },
     "response": {
-      "body": "{\"groups\":[{\"url\":\"https:\/\/mxent.zendesk.com\/api\/v2\/groups\/21554407.json\",\"id\":123123,\"name\":\"Another group\",\"deleted\":false,\"created_at\":\"2014-01-28T21:20:38Z\",\"updated_at\":\"2014-01-28T21:20:38Z\"},{\"url\":\"https:\/\/mxent.zendesk.com\/api\/v2\/groups\/21587626.json\",\"id\":21587626,\"name\":\"Includes light agents\",\"deleted\":false,\"created_at\":\"2014-01-28T21:21:05Z\",\"updated_at\":\"2014-01-28T21:21:05Z\"},{\"url\":\"https:\/\/mxent.zendesk.com\/api\/v2\/groups\/20305187.json\",\"id\":20305187,\"name\":\"Light Agents\",\"deleted\":false,\"created_at\":\"2012-07-15T06:59:39Z\",\"updated_at\":\"2012-07-15T06:59:39Z\"},{\"url\":\"https:\/\/mxent.zendesk.com\/api\/v2\/groups\/20305157.json\",\"id\":20305157,\"name\":\"Support\",\"deleted\":false,\"created_at\":\"2012-07-15T06:29:08Z\",\"updated_at\":\"2012-07-15T06:29:08Z\"}],\"next_page\":null,\"previous_page\":null,\"count\":4}",
+      "body": "{\"groups\":[{\"url\":\"https:\/\/your_subdomain.zendesk.com\/api\/v2\/groups\/21554407.json\",\"id\":123123,\"name\":\"Another group\",\"deleted\":false,\"created_at\":\"2014-01-28T21:20:38Z\",\"updated_at\":\"2014-01-28T21:20:38Z\"},{\"url\":\"https:\/\/your_subdomain.zendesk.com\/api\/v2\/groups\/21587626.json\",\"id\":21587626,\"name\":\"Includes light agents\",\"deleted\":false,\"created_at\":\"2014-01-28T21:21:05Z\",\"updated_at\":\"2014-01-28T21:21:05Z\"},{\"url\":\"https:\/\/your_subdomain.zendesk.com\/api\/v2\/groups\/20305187.json\",\"id\":20305187,\"name\":\"Light Agents\",\"deleted\":false,\"created_at\":\"2012-07-15T06:59:39Z\",\"updated_at\":\"2012-07-15T06:59:39Z\"},{\"url\":\"https:\/\/your_subdomain.zendesk.com\/api\/v2\/groups\/20305157.json\",\"id\":20305157,\"name\":\"Support\",\"deleted\":false,\"created_at\":\"2012-07-15T06:29:08Z\",\"updated_at\":\"2012-07-15T06:29:08Z\"}],\"next_page\":null,\"previous_page\":null,\"count\":4}",
       "headers": {
         "Accept-Ranges": "bytes",
         "Cache-Control": "max-age=604800",

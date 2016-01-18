@@ -9,24 +9,53 @@ defmodule Zendesk do
   @doc """
   Create a zendeks account
 
+  `domain` the account domain, example `https://domain.zendesk.com/api/v2`
+
   `email`: the zendesk email
 
   `password`: the zendesk password
   """
-  def account(url: url, email: email, password: password) do
-    %Zendesk.Account{url: url, email: email, password: password}
+  def account(domain: domain, email: email, password: password) do
+    %Zendesk.Account{domain: domain, email: email, password: password}
   end
-
 
   @doc """
   Create a zendeks account
 
+  `subdomain` the account subdomain, example domain, this will be joined with https://{The_Sub_domain}.zendesk.com/api/v2
+
   `email`: the zendesk email
 
-  `token`: the zendesk auth token
+  `password`: the zendesk password
   """
-  def account(url: url, email: email, token: token) do
-    %Zendesk.Account{url: url, email: email, token: token}
+  def account(subdomain: subdomain, email: email, password: password) do
+    %Zendesk.Account{subdomain: subdomain, email: email, password: password}
+  end
+
+  @doc """
+  Create a zendeks account
+
+  `domain` the account domain, example `https://domain.zendesk.com/api/v2`
+
+  `email`: the zendesk email
+
+  `token`: the zendesk access token
+  """
+  def account(domain: domain, email: email, token: token) do
+    %Zendesk.Account{domain: domain, email: email, token: token}
+  end
+
+  @doc """
+  Create a zendeks account
+
+  `subdomain` the account subdomain, example domain, this will be joined with https://{The_Sub_domain}.zendesk.com/api/v2
+
+  `email`: the zendesk email
+
+  `token`: the zendesk access token
+  """
+  def account(subdomain: subdomain, email: email, token: token) do
+    %Zendesk.Account{subdomain: subdomain, email: email, token: token}
   end
 
 
@@ -38,8 +67,25 @@ defmodule Zendesk do
       import Zendesk.GroupApi
       import Zendesk.TicketApi
       import Zendesk.OrganizationApi
+      import Zendesk.CommentApi
+      import Zendesk.TicketFieldsApi
+      import Zendesk.TicketMetricsApi
+      import Zendesk.RequestApi
+      import Zendesk.ViewApi
+      import Zendesk.UserFieldsApi
+      import Zendesk.GroupMembershipApi
+      import Zendesk.AccountSettingsApi
+      import Zendesk.AttachmentApi
+      import Zendesk.BrandApi
+      import Zendesk.TagsApi
+      import Zendesk.SearchApi
 
+      alias Zendesk.Account
+      alias Zendesk.Client
       alias Zendesk.Ticket
+      alias Zendesk.TicketField
+      alias Zendesk.Request
+      alias Zendesk.View
     end
   end
 

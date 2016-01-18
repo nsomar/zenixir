@@ -1,4 +1,7 @@
 defmodule Zendesk.Ticket do
+
+  import Zendesk.CommonUtils
+
   @moduledoc """
   Zendesk Ticket
   """
@@ -12,7 +15,6 @@ defmodule Zendesk.Ticket do
     %{comment: %{body: comment}}
   end
 
-
   @doc """
   Set the subject ticket
 
@@ -22,7 +24,6 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :subject, subject)
   end
 
-
   @doc """
   Add a custom field in the ticket
 
@@ -31,17 +32,8 @@ defmodule Zendesk.Ticket do
   `value`: the custom field value
   """
   def add_custom_fields(ticket, id, value) do
-    add_custom_fields(ticket, ticket[:custom_fields], id, value)
+    add_list_item(ticket, :custom_fields, %{id: id, value: value})
   end
-
-  defp add_custom_fields(ticket, nil, id, value) do
-    Map.put(ticket, :custom_fields, [[id: id, value: value]])
-  end
-
-  defp add_custom_fields(ticket, custom_fields, id, value) do
-    Map.put(ticket, :custom_fields, custom_fields ++ [[id: id, value: value]] )
-  end
-
 
   @doc """
   Add a collaborator with name and email to the ticket
@@ -51,11 +43,11 @@ defmodule Zendesk.Ticket do
   `email`: collaborator email
   """
   def add_collaborator(ticket, name: name, email: email) do
-    Map.put(ticket, :collaborators, collaborators(ticket) ++ [[name: name, email: email]] )
+    add_list_item(ticket, :collaborators, %{name: name, email: email})
   end
 
   def add_collaborator(ticket, email: email) do
-    Map.put(ticket, :collaborators, collaborators(ticket) ++ [email] )
+    add_list_item(ticket, :collaborators, email)
   end
 
 
@@ -65,13 +57,8 @@ defmodule Zendesk.Ticket do
   `id`: the collaborator id
   """
   def add_collaborator(ticket, id: id) do
-    Map.put(ticket, :collaborators, collaborators(ticket) ++ [id] )
+    add_list_item(ticket, :collaborators, id)
   end
-
-  defp collaborators(ticket) do
-    ticket[:collaborators] || []
-  end
-
 
   @doc """
   Set the ticket requester id
@@ -82,7 +69,6 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :requester_id, requester_id)
   end
 
-
   @doc """
   Set the assignee email
 
@@ -91,7 +77,6 @@ defmodule Zendesk.Ticket do
   def set_assignee_email(ticket, assignee_email) do
     Map.put(ticket, :assignee_email, assignee_email)
   end
-
 
   @doc """
   Set the group id for the ticket
@@ -102,7 +87,6 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :group_id, group_id)
   end
 
-
   @doc """
   Set the tags list to the ticket
 
@@ -111,7 +95,6 @@ defmodule Zendesk.Ticket do
   def set_tags(ticket, tags) do
     Map.put(ticket, :tags, tags)
   end
-
 
   @doc """
   Set the ticket external id
@@ -122,7 +105,6 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :external_id, external_id)
   end
 
-
   @doc """
   Set the the ticket problem id
 
@@ -131,7 +113,6 @@ defmodule Zendesk.Ticket do
   def set_problem_id(ticket, problem_id) do
     Map.put(ticket, :problem_id, problem_id)
   end
-
 
   @doc """
   Set the ticket follow source id
@@ -142,7 +123,6 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :via_followup_source_id, via_followup_source_id)
   end
 
-
   @doc """
   Set the due date for the ticket
 
@@ -151,7 +131,6 @@ defmodule Zendesk.Ticket do
   def set_due_at(ticket, due_at) do
     Map.put(ticket, :due_at, due_at)
   end
-
 
   @doc """
   Set ticket updated stamp date
@@ -162,7 +141,6 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :updated_stamp, updated_stamp)
   end
 
-
   @doc """
   Set the ticket save update flag
 
@@ -171,7 +149,6 @@ defmodule Zendesk.Ticket do
   def set_safe_update(ticket, safe_update) do
     Map.put(ticket, :safe_update, safe_update)
   end
-
 
   @doc """
   Set the ticket forum topic id
@@ -182,7 +159,6 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :forum_topic_id, forum_topic_id)
   end
 
-
   @doc """
   Set the ticket collaborator ids
 
@@ -191,7 +167,6 @@ defmodule Zendesk.Ticket do
   def set_collaborator_ids(ticket, collaborator_ids) do
     Map.put(ticket, :collaborator_ids, collaborator_ids)
   end
-
 
   @doc """
   Set the ticket assignee id
@@ -202,22 +177,19 @@ defmodule Zendesk.Ticket do
     Map.put(ticket, :assignee_id, assignee_id)
   end
 
-
   @doc """
   Set the ticket type
 
   `type`: the ticket type. can be from ["problem", "incident", "question", "task"]
   """
   @types ["problem", "incident", "question", "task"]
-  def set_type(ticket, type)
-  when type in @types do
-    Map.put(ticket, :type, type)
+  def set_type(ticket, type) do
+    set_map_item(map: ticket,
+    key: :type,
+    value: type,
+    allowed_list: @types,
+    error_msg: "Wrong type passed")
   end
-
-  def set_type(_, _) do
-    raise "Wrong type passed"
-  end
-
 
   @doc """
   Set the ticket status
@@ -225,15 +197,13 @@ defmodule Zendesk.Ticket do
   `status`: the ticket status. can be from ["open", "pending", "hold", "solved", "closed"]
   """
   @statuses ["open", "pending", "hold", "solved", "closed"]
-  def set_status(ticket, status)
-  when status in @statuses do
-    Map.put(ticket, :status, status)
+  def set_status(ticket, status) do
+    set_map_item(map: ticket,
+    key: :status,
+    value: status,
+    allowed_list: @statuses,
+    error_msg: "Wrong status passed")
   end
-
-  def set_status(_, _) do
-    raise "Wrong status passed"
-  end
-
 
   @doc """
   Set the ticket priority
@@ -241,13 +211,12 @@ defmodule Zendesk.Ticket do
   `priority`: the ticket priority. can be from ["urgent", "high", "normal", "low"]
   """
   @priorities ["urgent", "high", "normal", "low"]
-  def set_priority(ticket, priority)
-  when priority in @priorities do
-    Map.put(ticket, :priority, priority)
-  end
-
-  def set_priority(_, _) do
-    raise "Wrong priority passed"
+  def set_priority(ticket, priority) do
+    set_map_item(map: ticket,
+    key: :priority,
+    value: priority,
+    allowed_list: @priorities,
+    error_msg: "Wrong priority passed")
   end
 
   # Private
@@ -261,7 +230,11 @@ defmodule Zendesk.Ticket do
   end
 
   def from_json_array(json) do
-    Poison.Parser.parse(json, keys: :atoms) |> elem(1) |> Dict.get(:tickets)
+    from_json_array(json, :tickets)
+  end
+
+  def from_json_array(json, key) do
+    Poison.Parser.parse(json, keys: :atoms) |> elem(1) |> Dict.get(key)
   end
 
 end

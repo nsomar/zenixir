@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/account/settings.json"
+    },
+    "response": {
+      "body": "{\"settings\":{\"branding\":{\"header_color\":\"78A300\",\"page_background_color\":\"333333\",\"tab_background_color\":\"7FA239\",\"text_color\":\"FFFFFF\",\"header_logo_url\":null,\"favicon_url\":null},\"apps\":{\"use\":true,\"create_private\":true,\"create_public\":false},\"tickets\":{\"agent_ticket_deletion\":false,\"list_newest_comments_first\":true,\"collaboration\":true,\"private_attachments\":true,\"agent_collision\":true,\"tagging\":true,\"list_empty_views\":true,\"comments_public_by_default\":true,\"maximum_personal_views_to_list\":8,\"status_hold\":false,\"markdown_ticket_comments\":false,\"rich_text_comments\":false,\"emoji_autocompletion\":false,\"assign_tickets_upon_solve\":false,\"allow_group_reset\":false},\"chat\":{\"enabled\":false,\"available\":true,\"maximum_request_count\":1,\"welcome_message\":\"Hi there. How can I help today?\"},\"voice\":{\"enabled\":false,\"maintenance\":false,\"logging\":false,\"outbound_enabled\":false,\"agent_confirmation_when_forwarding\":true,\"agent_wrap_up_after_calls\":true,\"maximum_queue_size\":5,\"maximum_queue_wait_time\":1,\"only_during_business_hours\":false,\"recordings_public\":true,\"uk_mobile_forwarding\":true},\"twitter\":{\"shorten_url\":\"never\"},\"user\":{\"tagging\":true,\"time_zone_selection\":true,\"language_selection\":true,\"multiple_organizations\":false},\"screencast\":{\"enabled_for_tickets\":false,\"host\":null,\"tickets_recorder_id\":null},\"lotus\":{\"prefer_lotus\":true,\"reporting\":true},\"gooddata_advanced_analytics\":{\"enabled\":true},\"statistics\":{\"forum\":true,\"search\":true,\"rule_usage\":true},\"billing\":{\"backend\":\"zuora\"},\"active_features\":{\"on_hold_status\":false,\"user_tagging\":true,\"ticket_tagging\":true,\"topic_suggestion\":false,\"voice\":false,\"business_hours\":false,\"facebook_login\":false,\"google_login\":false,\"twitter_login\":true,\"forum_analytics\":true,\"agent_forwarding\":false,\"chat\":false,\"chat_about_my_ticket\":false,\"customer_satisfaction\":false,\"csat_reason_code\":false,\"screencasts\":false,\"markdown\":false,\"language_detection\":false,\"bcc_archiving\":false,\"allow_ccs\":true,\"advanced_analytics\":false,\"insights\":false,\"sandbox\":false,\"suspended_ticket_notification\":false,\"twitter\":false,\"facebook\":false,\"feedback_tabs\":true,\"dynamic_contents\":false,\"light_agents\":true,\"ticket_forms\":true,\"user_org_fields\":true},\"ticket_form\":{\"ticket_forms_instructions\":\"Enter instructions here\",\"raw_ticket_forms_instructions\":\"Enter instructions here\"},\"brands\":{\"default_brand_id\":1820976,\"require_brand_on_new_tickets\":false}}}",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "max-age=604800",
+        "Content-Type": "text/html",
+        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
+        "Etag": "\"359670651\"",
+        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
+        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
+        "Server": "ECS (iad/182A)",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "HIT",
+        "x-ec-custom-error": "1",
+        "Content-Length": "1270"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
