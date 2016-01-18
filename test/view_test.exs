@@ -42,7 +42,7 @@ defmodule ViewTest do
     use_cassette "view_with_id" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> view_with_id(view_id: "29292517")
+      |> show_view(view_id: "29292517")
 
       assert res.id == 29292517
       assert res.title == "Roger Wilco"
@@ -92,8 +92,8 @@ defmodule ViewTest do
 
   test "it creats a view" do
     use_cassette "create_view" do
-    view = View.new(title: "The Title")
-    |> View.add_condition(type: :any, field: "status", operator: "is", value: "open")
+      view = View.new(title: "The Title")
+      |> View.add_condition(type: :any, field: "status", operator: "is", value: "open")
 
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
@@ -106,7 +106,7 @@ defmodule ViewTest do
 
   test "it updates a view" do
     use_cassette "update_view" do
-    view = View.new(title: "Another title")
+      view = View.new(title: "Another title")
 
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")

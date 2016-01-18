@@ -23,7 +23,7 @@ defmodule Zendesk.GroupApi do
 
   `user_id` the user id
   """
-  def user_groups(account, user_id: user_id) do
+  def all_groups(account, user_id: user_id) do
     perform_request(&parse_get_groups/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@user_groups, [user_id]))
   end
@@ -31,11 +31,11 @@ defmodule Zendesk.GroupApi do
   @doc """
   Get group by id
 
-  `id` the group id
+  `group_id` the group id
   """
-  def group_with_id(account, id: id) do
+  def show_group(account, group_id: group_id) do
     perform_request(&parse_get_group/1, account: account, verb: :get,
-    endpoint: ExPrintf.sprintf(@group_with_id, [id]))
+    endpoint: ExPrintf.sprintf(@group_with_id, [group_id]))
   end
 
   # Private

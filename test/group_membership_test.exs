@@ -42,7 +42,7 @@ defmodule GroupMEmbershipTest do
     use_cassette "group_membership" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> group_membership(membership_id: "20967233")
+      |> show_group_membership(membership_id: "20967233")
 
       assert res.id == 20967233
     end
@@ -52,7 +52,7 @@ defmodule GroupMEmbershipTest do
     use_cassette "group_membership_for_user" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> group_membership(membership_id: "20967233", user_id: "237064573")
+      |> show_group_membership(membership_id: "20967233", user_id: "237064573")
 
       assert res.id == 20967233
     end

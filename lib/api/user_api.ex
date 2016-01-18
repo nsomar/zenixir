@@ -46,11 +46,11 @@ defmodule Zendesk.UserApi do
   @doc """
   Get a user with an id
 
-  `id`: the user id
+  `user_id`: the user id
   """
-  def user_with_id(account, id: id) do
+  def show_user(account, user_id: user_id) do
     perform_request(&parse_get_user/1, account: account, verb: :get,
-    endpoint: ExPrintf.sprintf(@user_with_id, [id]))
+    endpoint: ExPrintf.sprintf(@user_with_id, [user_id]))
   end
 
   @doc """
@@ -58,7 +58,7 @@ defmodule Zendesk.UserApi do
 
   `ids`: the user ids
   """
-  def users_with_ids(account, ids: ids) do
+  def show_users(account, ids: ids) do
     ids_strings = Enum.join(ids, ",")
     perform_request(&parse_get_users/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@many_users, [ids_strings]))

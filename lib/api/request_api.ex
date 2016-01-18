@@ -22,8 +22,10 @@ defmodule Zendesk.RequestApi do
 
   @doc """
   Get requests with multiple statues
+
+  `statuses` request statuses to fetch
   """
-  def request_with_statuses(account, statuses: statuses) do
+  def all_requests(account, statuses: statuses) do
     st = Enum.join(statuses, ",")
     perform_request(&parse_requests/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@request_status, [st]))
@@ -31,22 +33,28 @@ defmodule Zendesk.RequestApi do
 
   @doc """
   Get requests for a user
+
+  `user_id` user id
   """
-  def requests_for_user(account, user_id: user_id) do
+  def all_requests(account, user_id: user_id) do
     perform_request(&parse_requests/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@request_for_user, [user_id]))
   end
 
   @doc """
   Get requests for an organization
+
+  `organization_id` organization id to return requests for
   """
-  def requests_for_organization(account, organization_id: organization_id) do
+  def all_requests(account, organization_id: organization_id) do
     perform_request(&parse_requests/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@request_for_organization, [organization_id]))
   end
 
   @doc """
   Searches for a request
+
+  `query` query to perform
   """
   def search_requests(account, query: query) do
     perform_request(&parse_requests/1, account: account, verb: :get,
@@ -55,14 +63,18 @@ defmodule Zendesk.RequestApi do
 
   @doc """
   Gets a request
+
+  `request_id` request id to show
   """
-  def request_with_id(account, id: request_id) do
+  def show_request(account, request_id: request_id) do
     perform_request(&parse_request/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@single_request, [request_id]))
   end
 
   @doc """
   Create a request
+
+  `request` request to create
   """
   def create_request(account, request: request) do
     json = Zendesk.Request.to_json(%{request: request})
@@ -72,11 +84,15 @@ defmodule Zendesk.RequestApi do
 
   @doc """
   Update a request
+
+  `request_id` request id to update
+
+  `request` request to update
   """
-  def update_request(account, id: id, request: request) do
+  def update_request(account, request_id: request_id, request: request) do
     json = Zendesk.Request.to_json(%{request: request})
     perform_request(&parse_request/1, account: account, verb: :put,
-    endpoint: ExPrintf.sprintf(@single_request, [id]),
+    endpoint: ExPrintf.sprintf(@single_request, [request_id]),
     body: json, headers: headers)
   end
 

@@ -187,7 +187,7 @@ defmodule TicketTest do
     use_cassette "delete_tocket" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
-      |> delete_ticket(id: "399")
+      |> delete_ticket(ticket_id: "399")
 
       assert res == :ok
     end
@@ -198,7 +198,7 @@ defmodule TicketTest do
     use_cassette "ticket_collaborators" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
-      |> ticket_collaborators(id: "603")
+      |> ticket_collaborators(ticket_id: "603")
 
       assert res |> hd |> Map.get(:name) == "Someone"
     end
@@ -209,7 +209,7 @@ defmodule TicketTest do
     use_cassette "ticket_incidents" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
-      |> ticket_incidents(id: "502")
+      |> ticket_incidents(ticket_id: "502")
 
       assert length(res) == 100
     end
@@ -247,7 +247,7 @@ defmodule TicketTest do
 
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
-      |> update_ticket(ticket: ticket, id: "595")
+      |> update_ticket(ticket: ticket, ticket_id: "595")
 
       assert res.subject == "Another subject"
     end
@@ -273,7 +273,7 @@ defmodule TicketTest do
 
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.test", password: "test")
-      |> ticket_related(id: "23")
+      |> ticket_related(ticket_id: "23")
 
       assert res.from_archive == false
       assert res.incidents == 0
@@ -309,7 +309,7 @@ defmodule TicketTest do
       use_cassette "requester_tickets" do
         res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
-        |> tickets_with_user(requester: "4047329778")
+        |> show_ticket(requester_id: "4047329778")
 
         assert res |> hd |> Dict.get(:raw_subject) == "The subject"
         assert length(res) == 18
@@ -321,7 +321,7 @@ defmodule TicketTest do
       use_cassette "assigned_tickets" do
         res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
-        |> tickets_with_user(assignee: "236084977")
+        |> show_ticket(assignee_id: "236084977")
 
         assert res |> hd |> Dict.get(:raw_subject) == "Yiuiib"
         assert length(res) == 4
@@ -333,7 +333,7 @@ defmodule TicketTest do
       use_cassette "ccd_tickets" do
         res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
-        |> tickets_with_user(cc: "236084977")
+        |> show_ticket(cc_id: "236084977")
 
         assert res |> hd |> Dict.get(:raw_subject) == "Yiuiib"
         assert length(res) == 1
@@ -345,7 +345,7 @@ defmodule TicketTest do
       use_cassette "organization_tickets" do
         res = Zendesk.account(subdomain: "your_subdomain",
           email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
-        |> ticket_for_organization(organization_id: "22016037")
+        |> show_ticket(organization_id: "22016037")
 
         assert res |> hd |> Dict.get(:raw_subject) == "This is a sample ticket requested and submitted by you"
         assert length(res) == 50
@@ -358,7 +358,7 @@ defmodule TicketTest do
 
     res = Zendesk.account(subdomain: "your_subdomain",
     email: "test@test.com", password: "test")
-    |> ticket_with_id(id: "587")
+    |> show_ticket(ticket_id: "587")
 
     assert res |> Dict.get(:id) == 587
     assert res |> Dict.get(:subject) == "The subject"
@@ -371,7 +371,7 @@ defmodule TicketTest do
 
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> tickets_with_ids(ids: ["1", "587"])
+      |> show_tickets(ids: ["1", "587"])
 
       assert res |> hd |> Dict.get(:id) == 1
       assert length(res) == 2

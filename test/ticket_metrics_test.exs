@@ -20,7 +20,7 @@ defmodule TicketMetricsTest do
     use_cassette "metrics_for_ticket" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> metrics_for_ticket(ticket_id: "603")
+      |> all_metrics(ticket_id: "603")
 
       assert res.id == 2738394508
       assert res.replies == 0
@@ -31,7 +31,7 @@ defmodule TicketMetricsTest do
     use_cassette "metrics_with_id" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> metrics_with_id(id: "2738394508")
+      |> show_metric(metric_id: "2738394508")
 
       assert res.id == 2738394508
       assert res.replies == 0

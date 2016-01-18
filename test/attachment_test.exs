@@ -20,7 +20,7 @@ defmodule AttachmentTest do
     use_cassette "show_attachment" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> show_attachment(id: "2260784638")
+      |> show_attachment(attachment_id: "2260784638")
 
       assert res.file_name == "a.png"
     end
@@ -30,7 +30,7 @@ defmodule AttachmentTest do
     use_cassette "delete_attachment" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> delete_attachment(id: "2245806717")
+      |> delete_attachment(attachment_id: "2245806717")
 
       assert res == :ok
     end

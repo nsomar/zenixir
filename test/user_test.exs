@@ -64,7 +64,7 @@ defmodule LoginTest do
     use_cassette "user_with_id" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> user_with_id(id: "235178392")
+      |> show_user(user_id: "235178392")
 
       assert res.id == 235178392
       assert res.name == "Light Agent #2"
@@ -75,7 +75,7 @@ defmodule LoginTest do
     use_cassette "users_with_ids" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> users_with_ids(ids: ["235178392", "235179052"])
+      |> show_users(ids: ["235178392", "235179052"])
 
       assert res |> length == 2
       assert res |> hd |> Map.get(:name) == "Light Agent #2"

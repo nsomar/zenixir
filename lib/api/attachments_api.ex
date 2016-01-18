@@ -38,21 +38,21 @@ defmodule Zendesk.AttachmentApi do
   @doc """
   Show an attachment
 
-  `id` the attachment id
+  `attachment_id` the attachment id
   """
-  def show_attachment(account, id: id) do
+  def show_attachment(account, attachment_id: attachment_id) do
     perform_request(&parse_attachment/1, account: account, verb: :get,
-    endpoint: ExPrintf.sprintf(@show_attachment, [id]))
+    endpoint: ExPrintf.sprintf(@show_attachment, [attachment_id]))
   end
 
   @doc """
   Delete an attachment
 
-  `id` the attachment id
+  `attachment_id` the attachment id
   """
-  def delete_attachment(account, id: id) do
+  def delete_attachment(account, attachment_id: attachment_id) do
     perform_request(&parse_delete/1, account: account, verb: :delete,
-    endpoint: ExPrintf.sprintf(@delete_attachment, [id]))
+    endpoint: ExPrintf.sprintf(@delete_attachment, [attachment_id]))
   end
 
   # Private

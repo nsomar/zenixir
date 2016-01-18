@@ -20,7 +20,7 @@ defmodule RequestTest do
     use_cassette "request_with_statuses" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> request_with_statuses(statuses: ["open", "closed"])
+      |> all_requests(statuses: ["open", "closed"])
 
       assert length(res) == 56
       assert res |> hd |> Dict.get(:subject) == "This is a sample ticket requested and submitted by you"
@@ -31,7 +31,7 @@ defmodule RequestTest do
     use_cassette "requests_for_user" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> requests_for_user(user_id: "4096938127")
+      |> all_requests(user_id: "4096938127")
 
       assert length(res) == 56
       assert res |> hd |> Dict.get(:subject) == "This is a sample ticket requested and submitted by you"
@@ -42,7 +42,7 @@ defmodule RequestTest do
     use_cassette "request_for_organization" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> requests_for_organization(organization_id: "22016037")
+      |> all_requests(organization_id: "22016037")
 
       assert length(res) == 56
       assert res |> hd |> Dict.get(:subject) == "This is a sample ticket requested and submitted by you"
@@ -64,7 +64,7 @@ defmodule RequestTest do
     use_cassette "request_with_id" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> request_with_id(id: "1")
+      |> show_request(request_id: "1")
 
       assert res.id == 1
     end
@@ -158,7 +158,7 @@ defmodule RequestTest do
 
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
-      |> update_request(id: "613", request: request)
+      |> update_request(request_id: "613", request: request)
 
       assert res.subject == "Another"
     end

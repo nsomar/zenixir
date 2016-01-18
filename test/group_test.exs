@@ -20,7 +20,7 @@ defmodule GroupTest do
     use_cassette "user_groups" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> user_groups(user_id: "235179052")
+      |> all_groups(user_id: "235179052")
 
       assert res |> hd |> Map.get(:id) == 21554407
       assert length(res) == 3
@@ -31,7 +31,7 @@ defmodule GroupTest do
     use_cassette "group_with_id" do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
-      |> group_with_id(id: "21554407")
+      |> show_group(group_id: "21554407")
 
       assert res.id == 21554407
       assert res.name == "Another group"

@@ -28,7 +28,7 @@ defmodule CommentTest do
   test "it gets a comment for a request" do
     use_cassette "comment_for_request" do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
-      |> comment_for_request(request_id: "1", comment_id: "12655839076")
+      |> show_comment(request_id: "1", comment_id: "12655839076")
 
       assert res.id == 12655839076
       assert res.body == "Comment"

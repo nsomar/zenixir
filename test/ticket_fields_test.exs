@@ -18,7 +18,7 @@ defmodule TicketFieldsTest do
   test "it can get a ticket field" do
     use_cassette "single_ticket_field" do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
-      |> ticket_field_with_id(id: "21400357")
+      |> all_ticket_fields(ticket_id: "21400357")
 
       assert res |> Map.get(:id) == 21400357
     end
@@ -66,7 +66,7 @@ defmodule TicketFieldsTest do
     use_cassette "update_ticket_field" do
       field = TicketField.new(type: "text", title: "The title")
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
-      |> update_ticket_field(id: "29901588", ticket_field: field)
+      |> update_ticket_field(field_id: "29901588", ticket_field: field)
 
       assert res |> Map.get(:id) == 29901588
       assert res |> Map.get(:title) == "The title"
@@ -76,7 +76,7 @@ defmodule TicketFieldsTest do
   test "it can delete a ticket field with id" do
     use_cassette "delete_ticket_field" do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
-      |> delete_ticket_field(id: "29901588")
+      |> delete_ticket_field(field_id: "29901588")
 
       assert res == :ok
     end

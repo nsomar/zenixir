@@ -40,7 +40,7 @@ defmodule Zendesk.CommentApi do
 
   `comment_id` the comment id
   """
-  def comment_for_request(account, request_id: request_id, comment_id: comment_id) do
+  def show_comment(account, request_id: request_id, comment_id: comment_id) do
     perform_request(&parse_get_comment/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@comment_for_request, [request_id, comment_id]))
   end

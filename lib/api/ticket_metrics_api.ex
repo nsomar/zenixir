@@ -19,16 +19,20 @@ defmodule Zendesk.TicketMetricsApi do
 
   @doc """
   Get metrics for ticket id
+
+  `ticket_id` ticket id to get metrics for
   """
-  def metrics_for_ticket(account, ticket_id: ticket_id) do
+  def all_metrics(account, ticket_id: ticket_id) do
     perform_request(&parse_metric/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@ticket_metrics, [ticket_id]))
   end
 
   @doc """
   Get metrics with id
+
+  `metric_id` metric id to show
   """
-  def metrics_with_id(account, id: metric_id) do
+  def show_metric(account, metric_id: metric_id) do
     perform_request(&parse_metric/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@metric_for_id, [metric_id]))
   end

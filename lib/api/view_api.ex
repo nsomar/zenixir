@@ -47,7 +47,7 @@ defmodule Zendesk.ViewApi do
 
   `view_id` the view id
   """
-  def view_with_id(account, view_id: view_id) do
+  def show_view(account, view_id: view_id) do
     perform_request(&parse_get_view/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@get_view, [view_id]))
   end

@@ -45,7 +45,7 @@ defmodule Zendesk.GroupMembershipApi do
 
   `membership_id` group membership id
   """
-  def group_membership(account, membership_id: membership_id) do
+  def show_group_membership(account, membership_id: membership_id) do
     perform_request(&parse_single_membership/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@group_membership_with_id, [membership_id]))
   end
@@ -57,7 +57,7 @@ defmodule Zendesk.GroupMembershipApi do
 
   `user_id` the user id
   """
-  def group_membership(account, membership_id: membership_id, user_id: user_id) do
+  def show_group_membership(account, membership_id: membership_id, user_id: user_id) do
     perform_request(&parse_single_membership/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@group_membership_for_user_with_id, [user_id, membership_id]))
   end
