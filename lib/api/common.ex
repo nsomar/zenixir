@@ -43,7 +43,7 @@ defmodule Zendesk.CommonApi do
     |> parse_response(parse_method, full_endpoint)
   end
 
-  def parse_response(%HTTPotion.Response{status_code: status_code, body: body}, parse_method, endpoint)
+  def parse_response(%HTTPotion.Response{status_code: status_code, body: body}, _parse_method, endpoint)
   when status_code == 401 or status_code == 404 do
     IO.inspect endpoint
 
@@ -59,7 +59,7 @@ defmodule Zendesk.CommonApi do
     parse_response(body: response.body, parse_method: parse_method)
   end
 
-  def parse_response(body: body, parse_method: parse_method)
+  def parse_response(body: body, parse_method: _)
   when body == " " or body == "" or is_nil(body) do
     :ok
   end

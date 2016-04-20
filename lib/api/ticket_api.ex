@@ -80,18 +80,6 @@ defmodule Zendesk.TicketApi do
   end
 
   @doc """
-  Fetch a ticket with ID
-
-  `account`: The Zendesk.Account to use
-
-  `ticket_id`: Thec ticket ID to fetch
-  """
-  def show_ticket(account, ticket_id: ticket_id) do
-    perform_request(&parse_single_ticket/1, account: account, verb: :get,
-    endpoint: ticket_url(ticket_id))
-  end
-
-  @doc """
   Fetch a group of tickets
 
   `account`: The Zendesk.Account to use
@@ -116,6 +104,18 @@ defmodule Zendesk.TicketApi do
   def show_ticket(account, requester_id: requeser_id) do
     perform_request(&parse_multiple_tickets/1, account: account, verb: :get,
     endpoint: ExPrintf.sprintf(@by_requester, [requeser_id]))
+  end
+
+  @doc """
+  Fetch a ticket with ID
+
+  `account`: The Zendesk.Account to use
+
+  `ticket_id`: Thec ticket ID to fetch
+  """
+  def show_ticket(account, ticket_id: ticket_id) do
+    perform_request(&parse_single_ticket/1, account: account, verb: :get,
+    endpoint: ticket_url(ticket_id))
   end
 
   @doc """

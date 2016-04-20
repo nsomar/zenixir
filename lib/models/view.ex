@@ -41,7 +41,7 @@ defmodule Zendesk.View do
     add_list_item(view, type, %{field: title, operator: operator, value: value})
   end
 
-  def add_condition(view, map), do: raise "Wrong condition type passed \"#{to_char_list(map[:type])}\""
+  def add_condition(_view, map), do: raise "Wrong condition type passed \"#{to_char_list(map[:type])}\""
 
   # @condition_types [:all, :any]
   # def add_condition(view, type: type, field: title, operator: operator, value: value) do
