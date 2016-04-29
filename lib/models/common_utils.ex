@@ -50,7 +50,7 @@ defmodule Zendesk.CommonUtils do
     raise error_msg
   end
 
-  def set_map_item(map, key, value, contains, error_msg) do
+  def set_map_item(map, key, value, _contains, _error_msg) do
     Map.put(map, key, value)
   end
 
