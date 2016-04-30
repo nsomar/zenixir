@@ -17,6 +17,13 @@ defmodule TicketTest do
     assert ticket.subject == "The subject"
   end
 
+  test "it can create a ticket and set the requestor" do
+    ticket = Ticket.new("Hello") |> Ticket.add_requester(email: "test@test.net")
+
+    assert ticket.comment.body == "Hello"
+    assert ticket.requester == %{email: "test@test.net", name: "test@test.net"}
+  end
+
   test "it can create a ticket with requeser_id" do
     ticket = Ticket.new("Hello") |> Ticket.set_requester_id("123")
 
