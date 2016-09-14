@@ -34,9 +34,9 @@ defmodule NewTest.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.2"},
-      {:httpotion, "~> 2.1.0"},
-      {:poison, "~> 1.5"},
+    [
+      {:httpoison, "~> 0.9"},
+      {:poison, "~> 2.0"},
       {:exprintf, github: "parroty/exprintf"},
       {:exvcr, "~> 0.7", only: :test},
       {:coverex, "~> 1.4.7", only: :test},
