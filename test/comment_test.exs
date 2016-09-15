@@ -1,8 +1,8 @@
 defmodule CommentTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use Zendesk
   use TestHelper
-  use ExVCR.Mock
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
 
   test "it gets all the comments for a ticket" do
@@ -40,7 +40,7 @@ defmodule CommentTest do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
       |> redact_comment(ticket_id: "27", comment_id: "23487261437", text: "t")
 
-      assert res |> Map.get(:body) == "▇▇▇▇▇ ▇i▇k▇▇"
+      assert res["comment"] |> Map.get("body") == "▇▇▇▇▇ ▇i▇k▇▇"
     end
   end
 
@@ -49,7 +49,7 @@ defmodule CommentTest do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
       |> make_comment_private(ticket_id: "18", comment_id: "20931532428")
 
-      assert res == :ok
+      assert res == %{}
     end
   end
 

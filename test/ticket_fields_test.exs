@@ -1,8 +1,8 @@
 defmodule TicketFieldsTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use Zendesk
   use TestHelper
-  use ExVCR.Mock
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
 
   test "it can get all ticket fields" do
@@ -68,8 +68,8 @@ defmodule TicketFieldsTest do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
       |> update_ticket_field(field_id: "29901588", ticket_field: field)
 
-      assert res |> Map.get(:id) == 29901588
-      assert res |> Map.get(:title) == "The title"
+      assert res["ticket_field"] |> Map.get("id") == 29901588
+      assert res["ticket_field"] |> Map.get("title") == "The title"
     end
   end
 

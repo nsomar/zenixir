@@ -1,31 +1,35 @@
-[
-  {
+[{
     "request": {
-      "body": "",
-      "headers": [],
-      "method": "put",
-      "options": [],
-      "request_body": "",
-      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/18/comments/20931532428/make_private.json"
+        "body": "",
+        "headers": [],
+        "method": "post",
+        "options": {
+            "basic_auth": [
+                "test@test.com",
+                "test"
+            ]
+        },
+        "request_body": "",
+        "url": "https://your_subdomain.zendesk.com/api/v2/tickets/18/comments/20931532428/make_private.json"
     },
     "response": {
-      "body": " ",
-      "headers": {
-        "Accept-Ranges": "bytes",
-        "Cache-Control": "max-age=604800",
-        "Content-Type": "text/html",
-        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
-        "Etag": "\"359670651\"",
-        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
-        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
-        "Server": "ECS (iad/182A)",
-        "Vary": "Accept-Encoding",
-        "X-Cache": "HIT",
-        "x-ec-custom-error": "1",
-        "Content-Length": "1270"
-      },
-      "status_code": 200,
-      "type": "ok"
+        "body": "{}",
+        "headers": {
+            "Server": "nginx",
+            "Date": "Thu, 15 Sep 2016 00:25:49 GMT",
+            "Content-Type": "application/json; charset=UTF-8",
+            "Content-Length": "247",
+            "Connection": "keep-alive",
+            "Strict-Transport-Security": "max-age=0;",
+            "X-UA-Compatible": "IE=Edge,chrome=1",
+            "Cache-Control": "no-cache",
+            "X-Zendesk-Origin-Server": "app42.pod5.iad1.zdsys.com",
+            "X-Request-Id": "bc3218ce-f3ae-49c7-c923-b8ca3a6b1f90",
+            "X-Runtime": "0.013997",
+            "X-Rack-Cache": "invalidate, pass",
+            "X-Zendesk-Request-Id": "bb90f6aec23e9d4df7c1"
+        },
+        "status_code": 404,
+        "type": "ok"
     }
-  }
-]
+}]

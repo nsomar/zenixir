@@ -1,8 +1,8 @@
 defmodule ViewTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use Zendesk
   use TestHelper
-  use ExVCR.Mock
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
 
   test "it gets all the views" do
@@ -112,7 +112,7 @@ defmodule ViewTest do
       email: "test@zendesk.com", password: "test")
       |> update_view(view_id: "29292517", view: view)
 
-      assert res.title == "Another title"
+      assert res["view"]["title"] == "Another title"
     end
   end
 
