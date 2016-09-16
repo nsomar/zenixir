@@ -68,7 +68,7 @@ defmodule Zendesk.TicketApi do
   `start_time` : A Unix timestamp specifying the time to return all tickets from
   """
   def incremental_tickets(account, start_time) do
-    perform_request(&parse_multiple_tickets/1, account: account,
+    perform_request(&Zendesk.Ticket.incremental_from_json_array/1, account: account,
     verb: :get,
     endpoint: ExPrintf.sprintf(@incremental_tickets, [start_time]))
   end
