@@ -40,6 +40,8 @@ defmodule NewTest.Mixfile do
       {:exprintf, github: "parroty/exprintf"},
       {:exvcr, "~> 0.7", only: :test},
       {:coverex, "~> 1.4.7", only: :test},
-      {:inch_ex, ">= 0.0.0", only: :docs}]
+      {:inch_ex, ">= 0.0.0", only: :docs},
+      {:ex_doc, "~> 0.12", only: :dev}
+    ]
   end
 end
