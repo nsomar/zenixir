@@ -11,8 +11,8 @@ defmodule SeatchTest do
       email: "test@zendesk.com", password: "test")
       |> search(type: :user, query: "Tags")
 
-      assert length(res) == 1
-      assert res |> hd |> Dict.get(:name) == "No Tags Agent"
+      assert length(res.results) == 1
+      assert res.results |> hd |> Dict.get(:name) == "No Tags Agent"
     end
   end
 
@@ -22,8 +22,8 @@ defmodule SeatchTest do
       email: "test@zendesk.com", password: "test")
       |> search(query: "type:ticket Ticket with Attachments")
 
-      assert length(res) == 1
-      assert res |> hd |> Dict.get(:subject) == "Ticket with Attachments (DO NOT SOLVE OR DELETE)"
+      assert length(res.results) == 1
+      assert res.results |> hd |> Dict.get(:subject) == "Ticket with Attachments (DO NOT SOLVE OR DELETE)"
     end
   end
 

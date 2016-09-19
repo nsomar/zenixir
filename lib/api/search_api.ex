@@ -38,7 +38,7 @@ defmodule Zendesk.SearchApi do
   # Private
 
   defp parse_search(response) do
-    Poison.Parser.parse(response, keys: :atoms) |> elem(1) |> Dict.get(:results)
+    Poison.Parser.parse(response, keys: :atoms) |> elem(1)
   end
 
 end
