@@ -1,31 +1,37 @@
-[
-  {
+[{
     "request": {
-      "body": "",
-      "headers": [],
-      "method": "put",
-      "options": [],
-      "request_body": "",
-      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/27/comments/23487261437/redact.json"
+        "body": "{\"text\":\"t\"}",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "method": "post",
+        "options": {
+            "basic_auth": [
+                "test@test.com",
+                "test"
+            ]
+        },
+        "request_body": "",
+        "url": "https://your_subdomain.zendesk.com/api/v2/tickets/27/comments/23487261437/redact.json"
     },
     "response": {
-      "body": "{\"comment\":{\"id\":23487261437,\"type\":\"Comment\",\"author_id\":237065843,\"body\":\"\\u2587\\u2587\\u2587\\u2587\\u2587 \\u2587i\\u2587k\\u2587\\u2587\",\"html_body\":\"<div class=\\\"zd-comment\\\"><p>\\u2587\\u2587\\u2587\\u2587\\u2587 ti\\u2587k\\u2587t</p></div>\",\"public\":true,\"attachments\":[],\"audit_id\":23487261427}}",
-      "headers": {
-        "Accept-Ranges": "bytes",
-        "Cache-Control": "max-age=604800",
-        "Content-Type": "text/html",
-        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
-        "Etag": "\"359670651\"",
-        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
-        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
-        "Server": "ECS (iad/182A)",
-        "Vary": "Accept-Encoding",
-        "X-Cache": "HIT",
-        "x-ec-custom-error": "1",
-        "Content-Length": "1270"
-      },
-      "status_code": 200,
-      "type": "ok"
+        "body": "{\"comment\":{\"id\":23487261437,\"type\":\"Comment\",\"author_id\":237065843,\"body\":\"\\u2587\\u2587\\u2587\\u2587\\u2587 \\u2587i\\u2587k\\u2587\\u2587\",\"html_body\":\"<div class=\\\"zd-comment\\\"><p>\\u2587\\u2587\\u2587\\u2587\\u2587 ti\\u2587k\\u2587t</p></div>\",\"public\":true,\"attachments\":[],\"audit_id\":23487261427}}",
+        "headers": {
+            "Server": "nginx",
+            "Date": "Thu, 15 Sep 2016 00:16:30 GMT",
+            "Content-Type": "application/json; charset=UTF-8",
+            "Content-Length": "247",
+            "Connection": "keep-alive",
+            "Strict-Transport-Security": "max-age=0;",
+            "X-UA-Compatible": "IE=Edge,chrome=1",
+            "Cache-Control": "no-cache",
+            "X-Zendesk-Origin-Server": "app47.pod5.iad1.zdsys.com",
+            "X-Request-Id": "2f34d9db-0bd3-40cf-c0fc-b8ca3a6b1f90",
+            "X-Runtime": "0.016251",
+            "X-Rack-Cache": "invalidate, pass",
+            "X-Zendesk-Request-Id": "20811575eee489f12b8a"
+        },
+        "status_code": 404,
+        "type": "ok"
     }
-  }
-]
+}]

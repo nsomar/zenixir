@@ -1,8 +1,8 @@
 defmodule RequestTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use Zendesk
   use TestHelper
-  use ExVCR.Mock
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
 
   test "it gets all the requests" do
@@ -160,7 +160,7 @@ defmodule RequestTest do
       email: "test@test.com", password: "test")
       |> update_request(request_id: "613", request: request)
 
-      assert res.subject == "Another"
+      assert res["request"]["subject"] == "Another"
     end
   end
 

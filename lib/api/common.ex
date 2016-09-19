@@ -29,7 +29,8 @@ defmodule Zendesk.CommonApi do
 
     full_endpoint = Zendesk.Account.full_url(account, endpoint)
 
-    prepare_params(account, body, headers)
+    params = prepare_params(account, body, headers)
+    params
     |> http_request(verb, full_endpoint)
     |> parse_response(parse_method, full_endpoint)
   end
@@ -43,27 +44,21 @@ defmodule Zendesk.CommonApi do
     |> parse_response(parse_method, full_endpoint)
   end
 
-  def parse_response(%HTTPotion.Response{status_code: status_code, body: body}, _parse_method, endpoint)
+  def parse_response(%HTTPoison.Response{status_code: status_code, body: body}, _parse_method, endpoint)
   when status_code == 401 or status_code == 404 do
-    IO.inspect endpoint
-
     Zendesk.Error.from_json(body)
   end
-
-  def parse_response(%HTTPotion.Response{status_code: status_code}, parse_method, _)
+  def parse_response(%HTTPoison.Response{status_code: status_code}, parse_method, _)
   when status_code == 204 do
     parse_method.(:ok)
   end
-
   def parse_response(response, parse_method, _) do
     parse_response(body: response.body, parse_method: parse_method)
   end
-
   def parse_response(body: body, parse_method: _)
   when body == " " or body == "" or is_nil(body) do
     :ok
   end
-
   def parse_response(body: body, parse_method: parse_method) do
     parse_method.(body)
   end
@@ -76,28 +71,30 @@ defmodule Zendesk.CommonApi do
   end
 
   def http_request(params, :get, url) do
-    HTTPotion.start
-    HTTPotion.get(url, params)
+    auth = List.first(params)
+    HTTPoison.get!(url, [], auth)
   end
-
   def http_request(params, :put, url) do
-    HTTPotion.start
-    HTTPotion.put(url, params)
+    case length(params) do
+      1 ->
+        [auth] = params
+        HTTPoison.post!(url, "", [], auth)
+      3 ->
+        [auth, {:body, body}, {:headers, headers}] = params
+        HTTPoison.post!(url, body, headers, auth)
+    end
   end
-
   def http_request(params, :post, url) do
-    HTTPotion.start
-    HTTPotion.post(url, params)
+    [auth, {:body, body}, {:headers, headers}] = params
+    HTTPoison.post!(url, body, headers, auth)
   end
-
   def http_request(params, :upload, url) do
-    HTTPotion.start
-    HTTPotion.post(url, params)
+    [auth, {:body, body}, {:headers, headers}] = params
+    HTTPoison.post!(url, body, headers, auth)
   end
-
   def http_request(params, :delete, url) do
-    HTTPotion.start
-    HTTPotion.delete(url, params)
+    auth = List.first(params)
+    HTTPoison.delete!(url, [], auth)
   end
 
   defp empty_params do
@@ -105,13 +102,12 @@ defmodule Zendesk.CommonApi do
   end
 
   defp add_auth(params, account) do
-    params ++ Zendesk.Account.auth(account)
+    params ++ [Zendesk.Account.auth(account)]
   end
 
   defp add_body(params, nil) do
     params
   end
-
   defp add_body(params, body) do
     params ++ [body: body]
   end
@@ -119,7 +115,6 @@ defmodule Zendesk.CommonApi do
   defp add_headers(params, nil) do
     params
   end
-
   defp add_headers(params, headers) do
     params ++ [headers: headers]
   end
