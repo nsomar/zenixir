@@ -35,6 +35,17 @@ defmodule Zendesk.SearchApi do
     endpoint: ExPrintf.sprintf(@endpoint, [raw_query]) |> URI.encode)
   end
 
+  @doc """
+  Get the next list of all user fields
+
+  `url` : The full url
+  """
+  def next_url(account, url) do
+    perform_request(&parse_search/1,
+    account: account, verb: :get,
+    endpoint: url)
+  end
+
   # Private
 
   defp parse_search(response) do
