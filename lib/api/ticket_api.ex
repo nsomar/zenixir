@@ -22,6 +22,7 @@ defmodule Zendesk.TicketApi do
   @ticket_incidents "/tickets/%s/incidents.json"
   @all_problems "/problems.json"
   @autocomplete_problems "/problems/autocomplete.json"
+  @incremental_tickets "/incremental/tickets.json?start_time=%s"
 
   @doc """
   Create a ticket
@@ -57,6 +58,19 @@ defmodule Zendesk.TicketApi do
   """
   def all_tickets(account) do
     perform_request(&parse_multiple_tickets/1, account: account, verb: :get, endpoint: @all_endpoint)
+  end
+
+  @doc """
+  Get all tickets from a given starting point
+
+  `account` : The Zendesk.Account to use
+
+  `start_time` : A Unix timestamp specifying the time to return all tickets from
+  """
+  def incremental_tickets(account, start_time) do
+    perform_request(&Zendesk.Ticket.incremental_from_json_array/1, account: account,
+    verb: :get,
+    endpoint: ExPrintf.sprintf(@incremental_tickets, [start_time]))
   end
 
   @doc """

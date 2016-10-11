@@ -252,4 +252,7 @@ defmodule Zendesk.Ticket do
     Poison.Parser.parse(json, keys: :atoms) |> elem(1) |> Dict.get(key)
   end
 
+  def incremental_from_json_array(json) do
+    Poison.Parser.parse(json, keys: :atoms) |> elem(1)
+  end
 end

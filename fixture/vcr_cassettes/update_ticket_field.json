@@ -1,31 +1,37 @@
-[
-  {
+[{
     "request": {
-      "body": "",
-      "headers": [],
-      "method": "put",
-      "options": [],
-      "request_body": "",
-      "url": "https://your_subdomain.zendesk.com/api/v2/ticket_fields/29901588.json"
+        "body": "{\"ticket_field\":{\"type\":\"text\",\"title\":\"The title\"}}",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "method": "post",
+        "options": {
+            "basic_auth": [
+                "test@test.com",
+                "test"
+            ]
+        },
+        "request_body": "",
+        "url": "https://your_subdomain.zendesk.com/api/v2/ticket_fields/29901588.json"
     },
     "response": {
-      "body": "{\"ticket_field\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/ticket_fields/29901588.json\",\"id\":29901588,\"type\":\"text\",\"title\":\"The title\",\"raw_title\":\"The title\",\"description\":\"Age\",\"raw_description\":\"Age\",\"position\":9999,\"active\":true,\"required\":false,\"collapsed_for_agents\":false,\"regexp_for_validation\":null,\"title_in_portal\":\"The title\",\"raw_title_in_portal\":\"The title\",\"visible_in_portal\":false,\"editable_in_portal\":false,\"required_in_portal\":false,\"tag\":null,\"created_at\":\"2016-01-13T20:06:12Z\",\"updated_at\":\"2016-01-13T21:20:52Z\",\"removable\":true}}",
-      "headers": {
-        "Accept-Ranges": "bytes",
-        "Cache-Control": "max-age=604800",
-        "Content-Type": "text/html",
-        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
-        "Etag": "\"359670651\"",
-        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
-        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
-        "Server": "ECS (iad/182A)",
-        "Vary": "Accept-Encoding",
-        "X-Cache": "HIT",
-        "x-ec-custom-error": "1",
-        "Content-Length": "1270"
-      },
-      "status_code": 200,
-      "type": "ok"
+        "body": "{\"ticket_field\":{\"url\":\"https://your_subdomain.zendesk.com/api/v2/ticket_fields/29901588.json\",\"id\":29901588,\"type\":\"text\",\"title\":\"The title\",\"raw_title\":\"The title\",\"description\":\"Age\",\"raw_description\":\"Age\",\"position\":9999,\"active\":true,\"required\":false,\"collapsed_for_agents\":false,\"regexp_for_validation\":null,\"title_in_portal\":\"The title\",\"raw_title_in_portal\":\"The title\",\"visible_in_portal\":false,\"editable_in_portal\":false,\"required_in_portal\":false,\"tag\":null,\"created_at\":\"2016-01-13T20:06:12Z\",\"updated_at\":\"2016-01-13T21:20:52Z\",\"removable\":true}}",
+        "headers": {
+            "Server": "nginx",
+            "Date": "Thu, 15 Sep 2016 00:08:16 GMT",
+            "Content-Type": "application/json; charset=UTF-8",
+            "Content-Length": "247",
+            "Connection": "keep-alive",
+            "Strict-Transport-Security": "max-age=0;",
+            "X-UA-Compatible": "IE=Edge,chrome=1",
+            "Cache-Control": "no-cache",
+            "X-Zendesk-Origin-Server": "app35.pod5.iad1.zdsys.com",
+            "X-Request-Id": "b1c0c24d-3216-45ee-c5a8-b8ca3a6bb978",
+            "X-Runtime": "0.042756",
+            "X-Rack-Cache": "invalidate, pass",
+            "X-Zendesk-Request-Id": "b3961f21728d1480079b"
+        },
+        "status_code": 404,
+        "type": "ok"
     }
-  }
-]
+}]

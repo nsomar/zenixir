@@ -1,8 +1,8 @@
 defmodule TagTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use Zendesk
   use TestHelper
-  use ExVCR.Mock
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
 
   test "it gets all tags" do
@@ -55,8 +55,8 @@ defmodule TagTest do
       email: "test@zendesk.com", password: "test")
       |> update_tags(ticket_id: "1", tags: ["3", "4"])
 
-      assert length(res) == 4
-      assert "2" in res
+      assert length(res["tags"]) == 4
+      assert "2" in res["tags"]
     end
   end
 
@@ -77,8 +77,8 @@ defmodule TagTest do
       email: "test@zendesk.com", password: "test")
       |> update_tags(user_id: "453222636", tags: ["3", "4"])
 
-      assert length(res) == 4
-      assert "2" in res
+      assert length(res["tags"]) == 4
+      assert "2" in res["tags"]
     end
   end
 

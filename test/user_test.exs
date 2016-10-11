@@ -1,8 +1,8 @@
 defmodule LoginTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use Zendesk
   use TestHelper
-  use ExVCR.Mock
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
 
   test "it returns authentication error if username password is incorrect" do
@@ -10,7 +10,7 @@ defmodule LoginTest do
       res = Zendesk.account(subdomain: "your_subdomain", email: "a", password: "p")
       |> all_users
 
-      assert res.error == "Couldn't authenticate you"
+      assert res["error"] == "Couldn't authenticate you"
     end
   end
 

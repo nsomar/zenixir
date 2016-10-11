@@ -1,8 +1,8 @@
 defmodule AttachmentTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use Zendesk
   use TestHelper
-  use ExVCR.Mock
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
 
   test "it uploads a file" do

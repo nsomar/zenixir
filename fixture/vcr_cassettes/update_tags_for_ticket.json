@@ -1,31 +1,37 @@
-[
-  {
+[{
     "request": {
-      "body": "",
-      "headers": [],
-      "method": "put",
-      "options": [],
-      "request_body": "",
-      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/1/tags.json"
+        "body": "{\"tags\":[\"3\",\"4\"]}",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "method": "post",
+        "options": {
+            "basic_auth": [
+                "test@zendesk.com",
+                "test"
+            ]
+        },
+        "request_body": "",
+        "url": "https://your_subdomain.zendesk.com/api/v2/tickets/1/tags.json"
     },
     "response": {
-      "body": "{\"tags\":[\"3\",\"4\",\"1\",\"2\"]}",
-      "headers": {
-        "Accept-Ranges": "bytes",
-        "Cache-Control": "max-age=604800",
-        "Content-Type": "text/html",
-        "Date": "Mon, 11 Jan 2016 09:45:16 GMT",
-        "Etag": "\"359670651\"",
-        "Expires": "Mon, 18 Jan 2016 09:45:16 GMT",
-        "Last-Modified": "Fri, 09 Aug 2013 23:54:35 GMT",
-        "Server": "ECS (iad/182A)",
-        "Vary": "Accept-Encoding",
-        "X-Cache": "HIT",
-        "x-ec-custom-error": "1",
-        "Content-Length": "1270"
-      },
-      "status_code": 200,
-      "type": "ok"
+        "body": "{\"tags\":[\"3\",\"4\",\"1\",\"2\"]}",
+        "headers": {
+            "Server": "nginx",
+            "Date": "Wed, 14 Sep 2016 23:53:54 GMT",
+            "Content-Type": "application/json; charset=UTF-8",
+            "Content-Length": "247",
+            "Connection": "keep-alive",
+            "Strict-Transport-Security": "max-age=0;",
+            "X-UA-Compatible": "IE=Edge,chrome=1",
+            "Cache-Control": "no-cache",
+            "X-Zendesk-Origin-Server": "app10.pod5.iad1.zdsys.com",
+            "X-Request-Id": "f45ce7da-6887-4400-c407-b8ca3a6bb7d0",
+            "X-Runtime": "0.045283",
+            "X-Rack-Cache": "invalidate, pass",
+            "X-Zendesk-Request-Id": "bbf9c6f62c89fb0bd9ee"
+        },
+        "status_code": 404,
+        "type": "ok"
     }
-  }
-]
+}]
