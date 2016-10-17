@@ -1,12 +1,19 @@
 language: elixir
 elixir:
-  - 1.2.0
+  - 1.2.6
 otp_release:
   - 18.0
+env:
+  - MIX_ENV=test
+
 install:
   - mix local.hex --force
   - mix local.rebar --force
-script: "MIX_ENV=test mix do deps.get, deps.compile, test --cover"
+  - mix deps.get
+  - mix deps.compile
+
+script:
+  - mix coveralls.travis
 
 after_script:
   - mix deps.get --only docs
