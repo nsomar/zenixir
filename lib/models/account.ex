@@ -60,4 +60,14 @@ defmodule Zendesk.Account do
      [hackney: [basic_auth: {email <> "/token", token}]]
   end
 
+  @doc """
+  Get the Auth for a Zendesk.Account
+
+  `token`: zendesk oauth token
+  """
+  def auth(%Zendesk.Account{token: token})
+  when not is_nil token != nil do
+    ["Authorization": "Bearer #{token}"]
+  end
+
 end
