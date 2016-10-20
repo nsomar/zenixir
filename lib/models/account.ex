@@ -57,7 +57,7 @@ defmodule Zendesk.Account do
   """
   def auth(%Zendesk.Account{email: email, token: token})
   when not is_nil token != nil do
-     [basic_auth: {email <> "/token", token}]
+     [hackney: [basic_auth: {email <> "/token", token}]]
   end
 
 end
