@@ -294,8 +294,8 @@ defmodule TicketTest do
         email: "email@me.com", token: "jt82RfMETyIBzCBQwNuLeCh4YxdAps8rJeN99SW2")
         |> all_tickets
 
-        assert length(res) == 100
-        assert res |> hd |> Dict.get(:id) == 1
+        assert length(res.tickets) == 100
+        assert res.tickets |> hd |> Dict.get(:id) == 1
       end
     end
 

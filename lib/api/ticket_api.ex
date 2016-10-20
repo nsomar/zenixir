@@ -57,7 +57,20 @@ defmodule Zendesk.TicketApi do
   `account`: The Zendesk.Account to use
   """
   def all_tickets(account) do
-    perform_request(&parse_multiple_tickets/1, account: account, verb: :get, endpoint: @all_endpoint)
+    perform_request(&Zendesk.Ticket.incremental_from_json_array/1, account: account, verb: :get, endpoint: @all_endpoint)
+  end
+
+  @doc """
+  Get the next list of all tickets
+
+  `account`: The Zendesk.Account to use
+
+  `url` : The full url
+  """
+  def next_url(account, url) do
+    perform_request(&Zendesk.Ticket.incremental_from_json_array/1,
+    account: account, verb: :get,
+    endpoint: url)
   end
 
   @doc """
