@@ -79,6 +79,9 @@ defmodule Zendesk do
       import Zendesk.BrandApi
       import Zendesk.TagsApi
       import Zendesk.SearchApi
+      import Zendesk.TriggersApi
+      import Zendesk.TargetsApi
+      import Zendesk.AutomationsApi
 
       alias Zendesk.Account
       alias Zendesk.Client

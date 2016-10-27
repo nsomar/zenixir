@@ -81,6 +81,7 @@ defmodule Zendesk.CommentApi do
 
   defp parse_get_comment(response) do
     Zendesk.Comment.from_json(response)
+
   end
 
   defp parse_get_comments(response) do

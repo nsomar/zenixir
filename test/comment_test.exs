@@ -40,7 +40,7 @@ defmodule CommentTest do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
       |> redact_comment(ticket_id: "27", comment_id: "23487261437", text: "t")
 
-      assert res["comment"] |> Map.get("body") == "▇▇▇▇▇ ▇i▇k▇▇"
+      assert res |> Map.get(:body) == "▇▇▇▇▇ ▇i▇k▇▇"
     end
   end
 
@@ -48,7 +48,6 @@ defmodule CommentTest do
     use_cassette "make_comment_private" do
       res = Zendesk.account(subdomain: "your_subdomain", email: "test@test.com", password: "test")
       |> make_comment_private(ticket_id: "18", comment_id: "20931532428")
-
       assert res == %{}
     end
   end

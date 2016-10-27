@@ -55,8 +55,9 @@ defmodule TagTest do
       email: "test@zendesk.com", password: "test")
       |> update_tags(ticket_id: "1", tags: ["3", "4"])
 
-      assert length(res["tags"]) == 4
-      assert "2" in res["tags"]
+      assert length(res) == 4
+      assert "2" in res
+
     end
   end
 
@@ -77,8 +78,8 @@ defmodule TagTest do
       email: "test@zendesk.com", password: "test")
       |> update_tags(user_id: "453222636", tags: ["3", "4"])
 
-      assert length(res["tags"]) == 4
-      assert "2" in res["tags"]
+      assert length(res) == 4
+      assert "2" in res
     end
   end
 
