@@ -13,6 +13,7 @@ defmodule Zendesk.Account do
 
   `endpoint`: the resource endpoint
   """
+  def full_url(account, <<"https://">> <> rest = endpoint), do: URI.merge(domain(account), endpoint) |> to_string()
   def full_url(account, endpoint), do: domain(account) <> endpoint
 
   @doc """
