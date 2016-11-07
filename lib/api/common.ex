@@ -70,7 +70,12 @@ defmodule Zendesk.CommonApi do
 
   def http_request(params, :get, url) do
     auth = List.first(params)
-    HTTPoison.get!(url, [], auth)
+    case auth do
+      [hackney: _] ->
+        HTTPoison.get!(url, [], auth)
+      _ ->
+        HTTPoison.get!(url, auth, [])
+    end
   end
   def http_request(params, :put, url) do
     case length(params) do
