@@ -58,6 +58,17 @@ defmodule Zendesk do
     %Zendesk.Account{subdomain: subdomain, email: email, token: token}
   end
 
+  @doc """
+  Create a zendeks account
+
+  `subdomain` the account subdomain, example domain, this will be joined with https://{The_Sub_domain}.zendesk.com/api/v2
+
+  `token`: the zendesk oauth token
+  """
+  def account(subdomain: subdomain, token: token) do
+    %Zendesk.Account{subdomain: subdomain, token: token}
+  end
+
 
   defmacro __using__(_) do
     quote do
@@ -79,6 +90,9 @@ defmodule Zendesk do
       import Zendesk.BrandApi
       import Zendesk.TagsApi
       import Zendesk.SearchApi
+      import Zendesk.TriggersApi
+      import Zendesk.TargetsApi
+      import Zendesk.AutomationsApi
 
       alias Zendesk.Account
       alias Zendesk.Client

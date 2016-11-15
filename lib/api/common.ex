@@ -26,9 +26,7 @@ defmodule Zendesk.CommonApi do
   end
 
   def internal_perform_request(parse_method, account: account, verb: verb, endpoint: endpoint, body: body, headers: headers) do
-
     full_endpoint = Zendesk.Account.full_url(account, endpoint)
-
     params = prepare_params(account, body, headers)
     params
     |> http_request(verb, full_endpoint)
@@ -72,16 +70,21 @@ defmodule Zendesk.CommonApi do
 
   def http_request(params, :get, url) do
     auth = List.first(params)
-    HTTPoison.get!(url, [], auth)
+    case auth do
+      [hackney: _] ->
+        HTTPoison.get!(url, [], auth)
+      _ ->
+        HTTPoison.get!(url, auth, [])
+    end
   end
   def http_request(params, :put, url) do
     case length(params) do
       1 ->
         [auth] = params
-        HTTPoison.post!(url, "", [], auth)
+        HTTPoison.put!(url, "", [], auth)
       3 ->
         [auth, {:body, body}, {:headers, headers}] = params
-        HTTPoison.post!(url, body, headers, auth)
+        HTTPoison.put!(url, body, headers, auth)
     end
   end
   def http_request(params, :post, url) do

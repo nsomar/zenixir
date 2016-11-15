@@ -1,37 +1,39 @@
-[{
+[
+  {
     "request": {
-        "body": "{\"tags\":[\"3\",\"4\"]}",
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "method": "post",
-        "options": {
-            "basic_auth": [
-                "test@zendesk.com",
-                "test"
-            ]
-        },
-        "request_body": "",
-        "url": "https://your_subdomain.zendesk.com/api/v2/users/453222636/tags.json"
+      "body": "{\"tags\":[\"3\",\"4\"]}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "method": "put",
+      "options": {
+        "basic_auth": [
+          "test@zendesk.com",
+          "test"
+        ]
+      },
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/users/453222636/tags.json"
     },
     "response": {
-        "body": "{\"tags\":[\"3\",\"4\",\"1\",\"2\"]}",
-        "headers": {
-            "Server": "nginx",
-            "Date": "Thu, 15 Sep 2016 00:01:17 GMT",
-            "Content-Type": "application/json; charset=UTF-8",
-            "Content-Length": "247",
-            "Connection": "keep-alive",
-            "Strict-Transport-Security": "max-age=0;",
-            "X-UA-Compatible": "IE=Edge,chrome=1",
-            "Cache-Control": "no-cache",
-            "X-Zendesk-Origin-Server": "app44.pod5.iad1.zdsys.com",
-            "X-Request-Id": "ebf3e760-9dc9-4c65-cc59-b8ca3a6b1a08",
-            "X-Runtime": "0.012934",
-            "X-Rack-Cache": "invalidate, pass",
-            "X-Zendesk-Request-Id": "721e4eeee19dc836f79a"
-        },
-        "status_code": 404,
-        "type": "ok"
+      "body": "{\"tags\":[\"3\",\"4\",\"1\",\"2\"]}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Thu, 27 Oct 2016 01:19:32 GMT",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "247",
+        "Connection": "keep-alive",
+        "Strict-Transport-Security": "max-age=0;",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "Cache-Control": "no-cache",
+        "X-Zendesk-Origin-Server": "app29.pod5.iad1.zdsys.com",
+        "X-Request-Id": "8f984343-4c9a-4b87-cbac-b8ca3a6b1a08",
+        "X-Runtime": "0.014926",
+        "X-Rack-Cache": "invalidate, pass",
+        "X-Zendesk-Request-Id": "5f6ffbd128fffe416124"
+      },
+      "status_code": 200,
+      "type": "ok"
     }
-}]
+  }
+]

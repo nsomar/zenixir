@@ -1,38 +1,36 @@
 [
   {
     "request": {
-      "body": "{\"tags\":[\"3\",\"4\"]}",
-      "headers": {
-        "Content-Type": "application/json"
-      },
+      "body": "",
+      "headers": [],
       "method": "put",
       "options": {
         "basic_auth": [
-          "test@zendesk.com",
+          "test@test.com",
           "test"
         ]
       },
       "request_body": "",
-      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/1/tags.json"
+      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/18/comments/20931532428/make_private.json"
     },
     "response": {
-      "body": "{\"tags\":[\"3\",\"4\",\"1\",\"2\"]}",
+      "body": "{}",
       "headers": {
         "Server": "nginx",
-        "Date": "Thu, 27 Oct 2016 01:19:33 GMT",
+        "Date": "Thu, 15 Sep 2016 00:25:49 GMT",
         "Content-Type": "application/json; charset=UTF-8",
         "Content-Length": "247",
         "Connection": "keep-alive",
         "Strict-Transport-Security": "max-age=0;",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "Cache-Control": "no-cache",
-        "X-Zendesk-Origin-Server": "app15.pod5.iad1.zdsys.com",
-        "X-Request-Id": "1c08b9a5-540d-4c80-cca1-b8ca3a6b1a08",
-        "X-Runtime": "0.015544",
+        "X-Zendesk-Origin-Server": "app42.pod5.iad1.zdsys.com",
+        "X-Request-Id": "bc3218ce-f3ae-49c7-c923-b8ca3a6b1f90",
+        "X-Runtime": "0.013997",
         "X-Rack-Cache": "invalidate, pass",
-        "X-Zendesk-Request-Id": "fb467998166fbe3db865"
+        "X-Zendesk-Request-Id": "bb90f6aec23e9d4df7c1"
       },
-      "status_code": 200,
+      "status_code": 400,
       "type": "ok"
     }
   }

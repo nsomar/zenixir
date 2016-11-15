@@ -234,8 +234,6 @@ defmodule Zendesk.Ticket do
     error_msg: "Wrong priority passed")
   end
 
-  # Private
-
   def to_json(ticket) do
     Poison.encode!(ticket)
   end

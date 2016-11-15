@@ -1,35 +1,37 @@
-[{
+[
+  {
     "request": {
-        "body": "",
-        "headers": [],
-        "method": "post",
-        "options": {
-            "basic_auth": [
-                "test@test.com",
-                "test"
-            ]
-        },
-        "request_body": "",
-        "url": "https://your_subdomain.zendesk.com/api/v2/tickets/18/comments/20931532428/make_private.json"
+      "body": "",
+      "headers": [],
+      "method": "put",
+      "options": {
+        "basic_auth": [
+          "test@test.com",
+          "test"
+        ]
+      },
+      "request_body": "",
+      "url": "https://your_subdomain.zendesk.com/api/v2/tickets/18/comments/20931532428/make_private.json"
     },
     "response": {
-        "body": "{}",
-        "headers": {
-            "Server": "nginx",
-            "Date": "Thu, 15 Sep 2016 00:25:49 GMT",
-            "Content-Type": "application/json; charset=UTF-8",
-            "Content-Length": "247",
-            "Connection": "keep-alive",
-            "Strict-Transport-Security": "max-age=0;",
-            "X-UA-Compatible": "IE=Edge,chrome=1",
-            "Cache-Control": "no-cache",
-            "X-Zendesk-Origin-Server": "app42.pod5.iad1.zdsys.com",
-            "X-Request-Id": "bc3218ce-f3ae-49c7-c923-b8ca3a6b1f90",
-            "X-Runtime": "0.013997",
-            "X-Rack-Cache": "invalidate, pass",
-            "X-Zendesk-Request-Id": "bb90f6aec23e9d4df7c1"
-        },
-        "status_code": 404,
-        "type": "ok"
+      "body": "{}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Thu, 27 Oct 2016 00:51:17 GMT",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "247",
+        "Connection": "keep-alive",
+        "Strict-Transport-Security": "max-age=0;",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "Cache-Control": "no-cache",
+        "X-Zendesk-Origin-Server": "app36.pod5.iad1.zdsys.com",
+        "X-Request-Id": "55cc4d3a-60f2-42ff-c233-b8ca3a6b1aa9",
+        "X-Runtime": "0.072123",
+        "X-Rack-Cache": "invalidate, pass",
+        "X-Zendesk-Request-Id": "59ef72feb57d386e67ce"
+      },
+      "status_code": 400,
+      "type": "ok"
     }
-}]
+  }
+]

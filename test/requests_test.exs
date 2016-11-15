@@ -159,8 +159,7 @@ defmodule RequestTest do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@test.com", password: "test")
       |> update_request(request_id: "613", request: request)
-
-      assert res["request"]["subject"] == "Another"
+      assert res.subject == "Another"
     end
   end
 

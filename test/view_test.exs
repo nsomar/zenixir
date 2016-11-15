@@ -111,8 +111,7 @@ defmodule ViewTest do
       res = Zendesk.account(subdomain: "your_subdomain",
       email: "test@zendesk.com", password: "test")
       |> update_view(view_id: "29292517", view: view)
-
-      assert res["view"]["title"] == "Another title"
+      assert res[:title] == "Another title"
     end
   end
 
